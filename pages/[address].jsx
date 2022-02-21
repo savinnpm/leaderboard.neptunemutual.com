@@ -21,8 +21,17 @@ export default function Events() {
         </div>
       </div>
 
+      <div className="container mx-auto px-4 mt-10">
+        <div className="flex justify-between items-center">
+          <div className="text-gray-400">
+            0xeC73559994D5E4Ca5a16a90a14203A2dae50b545
+          </div>
+          <div className="font-semibold text-2xl">🏆 +150</div>
+        </div>
+      </div>
+
       {/* Table */}
-      <div className="container mx-auto px-4 mt-12 mb-24">
+      <div className="container mx-auto px-4 mt-5 mb-24">
         <Table />
       </div>
     </>

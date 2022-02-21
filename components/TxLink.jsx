@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { XIcon } from "@heroicons/react/outline";
 
 export function TxLink() {
   let [isOpen, setIsOpen] = useState(false);
@@ -59,28 +60,55 @@ export function TxLink() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
-                >
-                  Payment successful
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent you
-                    an email with all of the details of your order.
-                  </p>
+              <div className="inline-block w-full max-w-lg my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-3xl">
+                {/* Header with close */}
+                <div className="flex justify-between pl-10 pr-6 py-4 bg-[#F1F5F9]">
+                  <p className="text-[#64748B]">Bug Report #1234576</p>
+                  <button type="button" onClick={closeModal}>
+                    <XIcon width={18} height={18} />
+                  </button>
                 </div>
 
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
+                {/* Content Container */}
+                <div className="p-6">
+                  {/* Title */}
+                  <Dialog.Title
+                    as="h3"
+                    className="text-2xl font-medium leading-7"
                   >
-                    Got it, thanks!
-                  </button>
+                    Cannot Provide Liquidity
+                  </Dialog.Title>
+                  <p className="text-gray-400 mt-1">
+                    Reported On: 1/1/2022 23:12 UTC
+                  </p>
+
+                  <div className="mt-6">
+                    <p className="leading-8">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Consequat mauris nunc congue nisi vitae. Metus
+                      vulputate eu scelerisque felis imperdiet proin fermentum
+                      leo. In tellus integer feugiat scelerisq
+                    </p>
+
+                    <a
+                      href="https://example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block leading-8 underline mt-4"
+                    >
+                      Read more
+                    </a>
+                  </div>
+
+                  <div className="mt-14">
+                    <p>
+                      Status:{" "}
+                      <span className="inline-block bg-teal-600 text-white px-1 rounded-md">
+                        Accepted
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </Transition.Child>
