@@ -12,6 +12,8 @@
   "dependencies": {
     "@dicebear/avatars": "^4.10.2",
     "@dicebear/avatars-bottts-sprites": "^4.10.2",
+    "@dicebear/croodles": "^4.10.2",
+    "@dicebear/micah": "^4.10.2",
     "@fontsource/inter": "4.5.4",
     "@headlessui/react": "1.5.0",
     "@heroicons/react": "1.0.5",
