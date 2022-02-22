@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
-const PAGE_TITLE = "Neptune Mutual";
-const PAGE_DESCRIPTION = "Reduce Your Exposure to Crypto Market Risks";
+import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
 
 class MyDocument extends Document {
   render() {
@@ -84,9 +82,6 @@ class MyDocument extends Document {
             content="/icons/ms-icon-144x144.png"
           />
           <meta name="theme-color" content="#01052D" />
-
-          <title>{PAGE_TITLE}</title>
-          <meta name="description" content={PAGE_DESCRIPTION} />
 
           {/* Facebook Meta Tags */}
           <meta property="og:type" content="website" />

@@ -9,7 +9,7 @@ export const HallOfFame = ({ data }) => {
         <div className={styles.title_container}>
           <h2 className={styles.title}>Hall of Fame</h2>
           <a
-            href="http://example.com"
+            href="https://forms.clickup.com/f/6vvfh-4944/A2NSTHPDFMUPCHTU0Q"
             target="_blank"
             rel="noopener noreferrer"
           >
