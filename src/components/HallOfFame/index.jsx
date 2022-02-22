@@ -1,16 +1,34 @@
 import { AddressRow } from "../AddressRow";
-import { SearchBox } from "../SearchBox";
+import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 
 export const HallOfFame = ({ data }) => {
   return (
     <div className={styles.wrapper}>
       <div className="container">
-        <h2 className={styles.title}>Hall of Fame</h2>
+        <div className={styles.title_container}>
+          <h2 className={styles.title}>Hall of Fame</h2>
+          <a
+            href="http://example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SUBMIT BUG REPORT
+          </a>
+        </div>
 
         <div className={styles.table_wrapper}>
           <table className="table">
-            <thead></thead>
+            <thead className="thead">
+              <tr>
+                <th className={styles.rank_head_cell}>Rank</th>
+                <th></th>
+                <th className={styles.name_head_cell}>Moniker</th>
+                <th>Wallet Address</th>
+                <th>Points</th>
+                <th></th>
+              </tr>
+            </thead>
 
             <tbody>
               {data.map((x, idx) => (
@@ -18,7 +36,8 @@ export const HallOfFame = ({ data }) => {
               ))}
             </tbody>
           </table>
-          <SearchBox />
+
+          <Pagination />
         </div>
       </div>
     </div>

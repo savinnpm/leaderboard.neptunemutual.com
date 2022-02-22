@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@heroicons/react/outline";
+import { ArrowRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { getAvatarSvg } from "../../utils/avatar";
 import { classNames } from "../../utils/classnames";
@@ -9,8 +9,15 @@ export function AddressRow({ data, index }) {
 
   return (
     <tr className={styles.row}>
-      <td>
-        <div>{index + 1}</div>
+      <td className={styles.rank_cell}>
+        <div className={styles.rank_content}>
+          <span className={classNames(index === 0 && styles.first)}>
+            {index + 1}
+          </span>
+          {index === 0 && <img src="/images/ranks/rank1.svg" width={"39px"} />}
+          {index === 1 && <img src="/images/ranks/rank2.svg" width={"31px"} />}
+          {index === 2 && <img src="/images/ranks/rank3.svg" width={"31px"} />}
+        </div>
       </td>
 
       <td className={styles.image_cell}>
@@ -37,7 +44,7 @@ export function AddressRow({ data, index }) {
       <td>
         <Link href={"/addres"}>
           <a className={styles.link}>
-            <ArrowRightIcon width={12} />
+            <ArrowRightIcon height={18} />
           </a>
         </Link>
       </td>

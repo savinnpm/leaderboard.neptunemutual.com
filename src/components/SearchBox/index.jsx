@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 
 export const SearchBox = () => {
   return (
-    <div className="">
+    <div className={styles.wrapper}>
       <label htmlFor="search_by_address" className="sr-only">
         Search an Address ...
       </label>

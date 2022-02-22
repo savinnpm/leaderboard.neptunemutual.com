@@ -1,21 +1,46 @@
 .row {
+  &:not(:last-child) {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+  }
+
   td {
-    padding: 24px 16px;
+    padding: 24px 16px 24px 0;
     line-height: 1;
+  }
+}
+
+td.rank_cell {
+  width: 1%;
+  background-color: #3d437a;
+  padding-left: 3.5rem;
+  font-weight: bold;
+  font-size: 23px;
+
+  .rank_content {
+    display: flex;
+    align-items: center;
+
+    span.first {
+      font-size: 39px;
+      width: 34px;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 4px;
+      width: 39px;
+    }
   }
 }
 
 td.image_cell {
   padding: 0;
   width: 1%;
-  // background-color: #86e38f;
-  // background-color: rgba(255, 255, 255, 1);
-  // background-color: blue;
 
   .image_cell_content {
     position: relative;
-    min-width: 72px;
-    min-height: 72px;
+    min-width: 84px;
+    min-height: 84px;
   }
 
   .image_wrapper {
@@ -24,13 +49,14 @@ td.image_cell {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    width: 72px;
-    height: 72px;
+    width: 84px;
+    height: 84px;
   }
 }
 
 td {
   &.name_cell {
+    padding-left: 16px;
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;

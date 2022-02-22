@@ -3,6 +3,25 @@
   margin-bottom: 5rem;
 }
 
+.title_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  a {
+    padding: 12px 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(40px);
+    border-radius: 4px;
+
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+  }
+}
+
 .title {
   font-weight: bold;
   font-size: 33px;
@@ -13,6 +32,15 @@
 
 .table_wrapper {
   margin-top: 20px;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  border: 0.5px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(30px);
+  overflow-x: scroll;
+}
+
+.rank_head_cell {
+  padding-left: 3rem;
+}
+
+.name_head_cell {
+  padding-left: 1rem;
 }

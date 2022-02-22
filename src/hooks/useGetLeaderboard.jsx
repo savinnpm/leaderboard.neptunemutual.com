@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 
+const defaultInfo = {
+  items: [],
+  pointsEarned: 0,
+  totalUsers: 0,
+};
+
 export const useGetLeaderboard = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(defaultInfo);
 
   useEffect(() => {
     var requestOptions = {
@@ -13,8 +19,11 @@ export const useGetLeaderboard = () => {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setData(result.data.items))
-      .catch((error) => console.log("error", error));
+      .then((result) => {
+        console.log(result);
+        setData(result.data);
+      })
+      .catch((err) => console.error(err));
   }, []);
 
   return { data };

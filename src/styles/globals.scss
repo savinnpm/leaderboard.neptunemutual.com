@@ -44,6 +44,26 @@ a {
 }
 
 .table {
-  min-width: 100%;
+  width: 100%;
   border-spacing: 0;
+  border-collapse: collapse;
+  background: rgb(91, 96, 151);
+  backdrop-filter: blur(40px);
+}
+
+.thead {
+  color: #adafc6;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(47px);
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
+
+  th {
+    text-transform: uppercase;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }

@@ -12,10 +12,9 @@ export default function Home() {
     <>
       <Header />
 
-      {/* Hero */}
-      <Hero />
+      <Hero pointsEarned={data.pointsEarned} totalUsers={data.totalUsers} />
 
-      <HallOfFame data={data} />
+      <HallOfFame data={data.items} />
     </>
   );
 }
