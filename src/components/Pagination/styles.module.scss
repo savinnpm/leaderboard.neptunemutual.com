@@ -1,4 +1,32 @@
 .wrapper {
   padding: 12px 14px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination_nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  input {
+    min-width: 0;
+    width: 5rem;
+    padding: 6px 8px;
+    border: none;
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    margin-right: 1.5rem;
+  }
+}
+
+.pagination_btn {
+  padding: 0.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

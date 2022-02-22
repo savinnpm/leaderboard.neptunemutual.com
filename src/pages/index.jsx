@@ -11,8 +11,14 @@ import { useDebounce } from "../hooks/useDebounce";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(8);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const { data } = useGetLeaderboard({ searchTerm: debouncedSearchTerm });
+  const { data } = useGetLeaderboard({
+    skip,
+    limit,
+    searchTerm: debouncedSearchTerm,
+  });
 
   return (
     <>
@@ -29,6 +35,11 @@ export default function Home() {
         data={data.items}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        skip={skip}
+        setSkip={setSkip}
+        limit={limit}
+        setLimit={setLimit}
+        totalUsers={data.totalUsers}
       />
     </>
   );

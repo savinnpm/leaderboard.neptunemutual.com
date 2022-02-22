@@ -20,6 +20,13 @@ a {
   text-decoration: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

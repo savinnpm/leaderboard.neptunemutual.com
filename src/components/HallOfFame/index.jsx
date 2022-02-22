@@ -2,7 +2,16 @@ import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 
-export const HallOfFame = ({ data, searchTerm, setSearchTerm }) => {
+export const HallOfFame = ({
+  data,
+  searchTerm,
+  setSearchTerm,
+  skip,
+  setSkip,
+  limit,
+  setLimit,
+  totalUsers,
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className="container">
@@ -32,12 +41,20 @@ export const HallOfFame = ({ data, searchTerm, setSearchTerm }) => {
 
             <tbody>
               {data.map((x, idx) => (
-                <AddressRow key={x.address} data={x} index={idx} />
+                <AddressRow key={x.address} data={x} index={idx + skip} />
               ))}
             </tbody>
           </table>
 
-          <Pagination searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Pagination
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            skip={skip}
+            setSkip={setSkip}
+            limit={limit}
+            setLimit={setLimit}
+            totalUsers={totalUsers}
+          />
         </div>
       </div>
     </div>

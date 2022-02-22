@@ -6,7 +6,7 @@ const defaultInfo = {
   totalUsers: 0,
 };
 
-export const useGetLeaderboard = ({ searchTerm }) => {
+export const useGetLeaderboard = ({ skip, limit, searchTerm }) => {
   const [data, setData] = useState(defaultInfo);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,29 +15,24 @@ export const useGetLeaderboard = ({ searchTerm }) => {
       method: "GET",
     };
 
-    let searchParams = new URLSearchParams("");
+    let url = new URL(`https://api.leaderboard.neptunemutual.com/leaderboard`);
 
     if (searchTerm) {
-      searchParams.set("search", searchTerm);
+      url.searchParams.set("search", searchTerm);
     }
 
-    let url = `https://api.leaderboard.neptunemutual.com/leaderboard`;
-
-    if (searchParams.toString()) {
-      url = `${url}?${searchParams.toString()}`;
-    }
-
-    console.log(url);
+    url.searchParams.set("skip", skip);
+    url.searchParams.set("limit", limit);
 
     setIsLoading(true);
-    fetch(url, requestOptions)
+    fetch(url.toString(), requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setData(result.data);
       })
       .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));
-  }, [searchTerm]);
+  }, [skip, limit, searchTerm]);
 
   return { data, isLoading };
 };
