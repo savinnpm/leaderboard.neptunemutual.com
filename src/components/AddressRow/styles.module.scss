@@ -1,0 +1,57 @@
+.row {
+  td {
+    padding: 24px 16px;
+    line-height: 1;
+  }
+}
+
+td.image_cell {
+  padding: 0;
+  width: 1%;
+  background-color: #86e38f;
+
+  .image_cell_content {
+    position: relative;
+    min-width: 72px;
+    min-height: 72px;
+  }
+
+  .image_wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60px;
+    height: 60px;
+  }
+}
+
+td {
+  &.name_cell {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &.name_cell_0 {
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 28px;
+  }
+}
+
+td.points_cell {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 23px;
+}
+
+td.address_cell {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+td .link {
+  padding: 16px;
+}

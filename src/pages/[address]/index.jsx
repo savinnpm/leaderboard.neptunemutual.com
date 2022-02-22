@@ -1,7 +1,7 @@
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import { ChevronLeftIcon, SearchIcon } from "@heroicons/react/outline";
-import { AddressCard } from "../components/AddressCard";
-import { Table } from "../components/Table";
+import { AddressCard } from "../../components/AddressCard";
+import { Table } from "../../components/Table";
 import { useRouter } from "next/router";
 
 export default function Events() {

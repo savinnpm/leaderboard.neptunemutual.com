@@ -17,6 +17,18 @@ a {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .container {
   max-width: 80rem;
   margin: 0 auto;
@@ -29,4 +41,9 @@ a {
   @media (min-width: 1366px) {
     padding: 0 5rem;
   }
+}
+
+.table {
+  min-width: 100%;
+  border-spacing: 0;
 }

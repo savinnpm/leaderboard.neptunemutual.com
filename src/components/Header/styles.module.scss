@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: #000;
+  color: #fff;
+}
+
+.logo {
+  width: 190px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.social {
+  a {
+    display: inline-block;
+    color: inherit;
+  }
+
+  & > a:not(:last-child) {
+    margin-right: 12px;
+  }
+}

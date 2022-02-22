@@ -1,0 +1,31 @@
+.input_wrapper {
+  margin-top: 4px;
+  position: relative;
+  background: rgba(18, 18, 18, 0.3);
+  backdrop-filter: blur(47px);
+
+  .icon_wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  input {
+    background-color: transparent;
+    padding-left: 32px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border: none;
+    width: 100%;
+
+    &::placeholder {
+      color: #ffffff80;
+      opacity: 1;
+    }
+  }
+}

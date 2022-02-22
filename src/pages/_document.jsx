@@ -1,5 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
+const PAGE_TITLE = "Neptune Mutual";
+const PAGE_DESCRIPTION = "Reduce Your Exposure to Crypto Market Risks";
+
 class MyDocument extends Document {
   render() {
     return (
@@ -81,8 +84,25 @@ class MyDocument extends Document {
             content="/icons/ms-icon-144x144.png"
           />
           <meta name="theme-color" content="#01052D" />
+
+          <title>{PAGE_TITLE}</title>
+          <meta name="description" content={PAGE_DESCRIPTION} />
+
+          {/* Facebook Meta Tags */}
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={PAGE_TITLE} />
+          <meta property="og:description" content={PAGE_DESCRIPTION} />
+          <meta property="og:image" content="/images/og.png" />
+
+          {/* Twitter Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="neptunemutual.com" />
+          <meta name="twitter:title" content={PAGE_TITLE} />
+          <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+          <meta name="twitter:image" content="/images/og.png" />
         </Head>
-        <body className="font-poppins text-black text-para bg-f1f3f6">
+
+        <body>
           <Main />
           <NextScript />
         </body>
