@@ -1,4 +1,5 @@
 import { classNames } from "../../utils/classnames";
+import { formatCurrency } from "../../utils/formatter/currency";
 import LeaderboardGraphic from "./LeaderboardGraphic";
 import styles from "./styles.module.scss";
 
@@ -16,12 +17,12 @@ export const Hero = ({ pointsEarned, totalUsers }) => {
         <div className={styles.stats}>
           <div>
             <h3>POINTS EARNED</h3>
-            <p>{pointsEarned}</p>
+            <p>{formatCurrency(pointsEarned, "").short}</p>
           </div>
 
           <div>
             <h3>TOTAL USERS</h3>
-            <p>{totalUsers}</p>
+            <p>{formatCurrency(totalUsers, "").short}</p>
           </div>
         </div>
       </div>

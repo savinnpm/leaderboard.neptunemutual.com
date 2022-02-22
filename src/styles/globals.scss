@@ -10,6 +10,9 @@ body {
   font-family: "Inter", sans-serif;
   background: linear-gradient(180deg, #3f4472 0%, #323875 100%);
   color: #fff;
+  background-image: url("/images/bg.png");
+  background-size: cover;
+  background-position: center center;
 }
 
 a {

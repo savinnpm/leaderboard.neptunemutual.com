@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { getAvatarSvg } from "../../utils/avatar";
 import { classNames } from "../../utils/classnames";
+import { formatCurrency } from "../../utils/formatter/currency";
 import styles from "./styles.module.scss";
 
 export function AddressRow({ data, index }) {
@@ -38,7 +39,7 @@ export function AddressRow({ data, index }) {
       <td className={styles.address_cell}>{address}</td>
 
       <td className={styles.points_cell}>
-        <div>{totalPoints}</div>
+        <div>{formatCurrency(totalPoints, "").short}</div>
       </td>
 
       <td>
