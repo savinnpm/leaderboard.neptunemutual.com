@@ -6,9 +6,13 @@ import { SearchBox } from "../components/SearchBox";
 import { HallOfFame } from "../components/HallOfFame";
 import Head from "next/head";
 import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
+import { useState } from "react";
+import { useDebounce } from "../hooks/useDebounce";
 
 export default function Home() {
-  const { data } = useGetLeaderboard();
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const { data } = useGetLeaderboard({ searchTerm: debouncedSearchTerm });
 
   return (
     <>
@@ -21,7 +25,11 @@ export default function Home() {
 
       <Hero pointsEarned={data.pointsEarned} totalUsers={data.totalUsers} />
 
-      <HallOfFame data={data.items} />
+      <HallOfFame
+        data={data.items}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
     </>
   );
 }

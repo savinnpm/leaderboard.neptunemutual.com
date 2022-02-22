@@ -2,7 +2,7 @@ import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 
-export const HallOfFame = ({ data }) => {
+export const HallOfFame = ({ data, searchTerm, setSearchTerm }) => {
   return (
     <div className={styles.wrapper}>
       <div className="container">
@@ -37,7 +37,7 @@ export const HallOfFame = ({ data }) => {
             </tbody>
           </table>
 
-          <Pagination />
+          <Pagination searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
       </div>
     </div>

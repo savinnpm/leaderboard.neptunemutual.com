@@ -1,7 +1,7 @@
 import { SearchIcon } from "@heroicons/react/outline";
 import styles from "./styles.module.scss";
 
-export const SearchBox = () => {
+export const SearchBox = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className={styles.wrapper}>
       <label htmlFor="search_by_address" className="sr-only">
@@ -17,6 +17,8 @@ export const SearchBox = () => {
           id="search_by_address"
           className="focus:ring-blue-500 focus:border-blue-500 border block w-full py-3.5 pl-8 pr-4 sm:text-sm border-gray-300 rounded-lg"
           placeholder="Search an Address ..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
     </div>
