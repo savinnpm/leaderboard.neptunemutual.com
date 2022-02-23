@@ -9,7 +9,7 @@ export const BackButton = () => {
     <div className={styles.wrapper}>
       <div className="container">
         <button className={styles.button} onClick={() => router.back()}>
-          <ChevronLeftIcon width={16} />
+          <ChevronLeftIcon className={styles.icon} width={16} />
           Back
         </button>
       </div>

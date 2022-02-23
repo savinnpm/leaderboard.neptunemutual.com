@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 5rem;
+
+  > * {
+    flex: 1 1 100%;
+  }
+}
+
+.credits_wrapper {
+  text-align: center;
+}
+
+.share_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  h5 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 1.5rem;
+  }
+}
+
+.share_links {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: inline-block;
+    padding: 0.75rem 0.75rem 0.5rem;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+}

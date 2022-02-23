@@ -23,11 +23,16 @@ html {
 
 body {
   background: #323875;
+}
+
+.content {
+  background: #323875;
   color: #fff;
   background-image: url("/images/bg.png"),
     linear-gradient(180deg, #3f4472 0%, #323875 100%);
   background-size: auto;
   background-position: center center;
+  background-repeat: no-repeat;
 }
 
 a {
@@ -72,14 +77,14 @@ button {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
-  background: rgb(91, 96, 151);
-  backdrop-filter: blur(40px);
+  background: rgb(91, 96, 151, 0.25);
+  backdrop-filter: blur(6px);
 }
 
 .thead {
   color: #adafc6;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(47px);
+  backdrop-filter: blur(6px);
 
   font-weight: bold;
   font-size: 14px;

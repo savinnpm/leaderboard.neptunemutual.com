@@ -6,6 +6,7 @@ import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
 import { useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,18 +28,22 @@ export default function Home() {
 
       <Header />
 
-      <Hero pointsEarned={data.pointsEarned} totalUsers={data.totalUsers} />
+      <div className="content">
+        <Hero pointsEarned={data.pointsEarned} totalUsers={data.totalUsers} />
 
-      <HallOfFame
-        data={data.items}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        skip={skip}
-        setSkip={setSkip}
-        limit={limit}
-        setLimit={setLimit}
-        totalUsers={data.totalUsers}
-      />
+        <HallOfFame
+          data={data.items}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          skip={skip}
+          setSkip={setSkip}
+          limit={limit}
+          setLimit={setLimit}
+          totalUsers={data.totalUsers}
+        />
+
+        <Footer />
+      </div>
     </>
   );
 }
