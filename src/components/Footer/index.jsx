@@ -41,7 +41,7 @@ export const Footer = () => {
 
         <p className={styles.credits_wrapper}>
           <a
-            href="http://example.com"
+            href="https://example.com"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,5 +1,5 @@
 .wrapper {
-  min-width: 26rem;
+  min-width: 29rem;
 }
 
 .input_wrapper {
@@ -29,6 +29,7 @@
     padding-bottom: 9px;
     border: none;
     width: 100%;
+    outline: none;
 
     &::placeholder {
       color: #ffffff80;
