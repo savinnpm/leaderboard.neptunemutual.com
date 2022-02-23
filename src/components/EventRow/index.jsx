@@ -1,6 +1,7 @@
 import DateLib from "../../../lib/date/DateLib";
 import { formatCurrency } from "../../utils/formatter/currency";
 import { fromNow } from "../../utils/formatter/relative-time";
+import { BugReportModal } from "../BugReportModal";
 import styles from "./styles.module.scss";
 
 export function EventRow({ data }) {
@@ -27,7 +28,7 @@ export function EventRow({ data }) {
             Tx
           </a>
         ) : (
-          <button>Bug Report</button>
+          <BugReportModal />
         )}
       </td>
 

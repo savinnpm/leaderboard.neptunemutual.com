@@ -1,0 +1,104 @@
+.dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.dialog_content {
+  min-height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+}
+
+.dialog_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(13, 13, 13, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.trick {
+  display: inline-block;
+  height: 100vh;
+  vertical-align: middle;
+}
+
+.modal_wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 540px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  text-align: left;
+  vertical-align: middle;
+  transition: all 200ms;
+  background-color: rgb(110, 113, 144);
+  color: #ffffff;
+
+  .modal_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    background-color: #fff;
+    color: #000;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    button {
+      padding: 0.5rem;
+    }
+  }
+
+  .modal_content {
+    padding: 2rem 2.5rem 2.5rem;
+  }
+
+  .modal_title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .modal_subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 0.25rem;
+  }
+
+  .modal_description {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 1.5rem;
+  }
+
+  .read_more {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: underline;
+  }
+
+  .status {
+    margin-top: 3.5rem;
+  }
+
+  .status_badge {
+    background-color: #25c39d;
+    border-radius: 0.35rem;
+    padding: 0.25rem;
+  }
+}
