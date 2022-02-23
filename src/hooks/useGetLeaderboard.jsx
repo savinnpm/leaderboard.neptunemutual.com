@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../config";
 
 const defaultInfo = {
   items: [],
@@ -15,7 +16,7 @@ export const useGetLeaderboard = ({ skip, limit, searchTerm }) => {
       method: "GET",
     };
 
-    let url = new URL(`https://api.leaderboard.neptunemutual.com/leaderboard`);
+    let url = new URL(`${BASE_URL}/leaderboard`);
 
     if (searchTerm) {
       url.searchParams.set("search", searchTerm);
@@ -28,7 +29,9 @@ export const useGetLeaderboard = ({ skip, limit, searchTerm }) => {
     fetch(url.toString(), requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setData(result.data);
+        if (result.data) {
+          setData(result.data);
+        }
       })
       .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));

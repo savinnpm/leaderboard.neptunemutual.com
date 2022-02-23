@@ -30,7 +30,7 @@ export default function Events() {
       <div className="content">
         <BackButton />
 
-        <AddressTitleBar address={address} points={150} />
+        <AddressTitleBar address={address} points={data.totalPoints} />
 
         {/* Table */}
         <div className="container">

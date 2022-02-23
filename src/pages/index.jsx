@@ -3,7 +3,7 @@ import { Hero } from "../components/Hero";
 import { HallOfFame } from "../components/HallOfFame";
 import Head from "next/head";
 import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
 import { Footer } from "../components/Footer";
@@ -18,6 +18,11 @@ export default function Home() {
     limit,
     searchTerm: debouncedSearchTerm,
   });
+
+  useEffect(() => {
+    setSkip(0);
+    setLimit(8);
+  }, [searchTerm]);
 
   return (
     <>

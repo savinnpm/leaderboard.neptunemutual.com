@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../config";
 
 const defaultInfo = {
   items: [],
-  pointsEarned: 0,
-  totalUsers: 0,
+  skip: 0,
+  limit: 1,
+  records: 0,
+  totalPoints: 0,
 };
 
 export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
@@ -19,9 +22,7 @@ export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
       method: "GET",
     };
 
-    let url = new URL(
-      `https://api.leaderboard.neptunemutual.com/accounts/${address}`
-    );
+    let url = new URL(`${BASE_URL}/accounts/${address}`);
 
     if (searchTerm) {
       url.searchParams.set("search", searchTerm);
@@ -34,7 +35,9 @@ export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
     fetch(url.toString(), requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setData(result.data);
+        if (result.data) {
+          setData(result.data);
+        }
       })
       .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));
