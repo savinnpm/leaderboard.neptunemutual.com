@@ -1,0 +1,46 @@
+.row {
+  &:not(:last-child) {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+  }
+
+  td {
+    padding: 1.5rem 16px 1.5rem 0;
+    line-height: 1;
+  }
+}
+
+td.time_cell {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 1.5rem;
+  background-color: #3d437a;
+}
+
+td.action_cell {
+  font-size: 16px;
+  line-height: 19px;
+  padding: 1.5rem;
+}
+
+td.view_cell {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 1.5rem;
+
+  a,
+  button {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+td.points_cell {
+  font-size: 19px;
+  line-height: 23px;
+  text-align: right;
+  padding: 1.5rem;
+}

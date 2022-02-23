@@ -1,6 +1,4 @@
 import { Header } from "../components/Header";
-import { AddressRow } from "../components/AddressRow";
-import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
 import { Hero } from "../components/Hero";
 import { SearchBox } from "../components/SearchBox";
 import { HallOfFame } from "../components/HallOfFame";
@@ -8,6 +6,7 @@ import Head from "next/head";
 import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
 import { useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
+import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");

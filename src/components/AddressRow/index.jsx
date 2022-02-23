@@ -43,7 +43,7 @@ export function AddressRow({ data, index }) {
       </td>
 
       <td>
-        <Link href={"/addres"}>
+        <Link href={`/${address}`}>
           <a className={styles.link}>
             <ArrowRightIcon height={18} />
           </a>

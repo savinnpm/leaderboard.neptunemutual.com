@@ -53,7 +53,7 @@ export const HallOfFame = ({
             setSkip={setSkip}
             limit={limit}
             setLimit={setLimit}
-            totalUsers={totalUsers}
+            records={totalUsers}
           />
         </div>
       </div>

@@ -1,38 +1,49 @@
 import { Header } from "../../components/Header";
 import { ChevronLeftIcon, SearchIcon } from "@heroicons/react/outline";
-// import { AddressCard } from "../../components/AddressCard";
 import { Table } from "../../components/Table";
 import { useRouter } from "next/router";
+import { BackButton } from "../../components/BackButton";
+import { AddressTitleBar } from "../../components/AddressTitleBar";
+import { EventsTable } from "../../components/EventsTable";
+import { useState } from "react";
+import { useDebounce } from "../../hooks/useDebounce";
+import { useAccountInfo } from "../../hooks/useAccountInfo";
 
 export default function Events() {
   const router = useRouter();
+  const { address } = router.query;
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(8);
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const { data } = useAccountInfo({
+    address,
+    skip,
+    limit,
+    searchTerm: debouncedSearchTerm,
+  });
 
   return (
     <>
       <Header />
 
-      {/* Back */}
-      <div className="container mx-auto px-4 mt-16">
-        <div className="inline-flex items-center">
-          <ChevronLeftIcon width={16} />
-          <button className="text-blue-500" onClick={() => router.back()}>
-            Back
-          </button>
-        </div>
-      </div>
+      <BackButton />
 
-      <div className="container mx-auto px-4 mt-10">
-        <div className="flex justify-between items-center">
-          <div className="text-gray-400">
-            0xeC73559994D5E4Ca5a16a90a14203A2dae50b545
-          </div>
-          <div className="font-semibold text-2xl">🏆 +150</div>
-        </div>
-      </div>
+      <AddressTitleBar address={address} points={150} />
 
       {/* Table */}
-      <div className="container mx-auto px-4 mt-5 mb-24">
-        <Table />
+      <div className="container">
+        <EventsTable
+          data={data.items}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          skip={skip}
+          setSkip={setSkip}
+          limit={limit}
+          setLimit={setLimit}
+          records={data.records}
+        />
       </div>
     </>
   );
