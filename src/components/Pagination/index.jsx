@@ -9,7 +9,7 @@ export const Pagination = ({
   skip,
   setSkip,
   limit,
-  setLimit,
+  setLimit: _setLimit,
   records,
 }) => {
   const page = skip / limit + 1;

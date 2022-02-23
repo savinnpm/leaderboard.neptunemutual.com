@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { ChevronLeftIcon, SearchIcon } from "@heroicons/react/outline";
+import { ChevronLeftIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 
 export const BackButton = () => {

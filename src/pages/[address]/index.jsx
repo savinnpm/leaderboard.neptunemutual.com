@@ -1,6 +1,4 @@
 import { Header } from "../../components/Header";
-import { ChevronLeftIcon, SearchIcon } from "@heroicons/react/outline";
-import { Table } from "../../components/Table";
 import { useRouter } from "next/router";
 import { BackButton } from "../../components/BackButton";
 import { AddressTitleBar } from "../../components/AddressTitleBar";

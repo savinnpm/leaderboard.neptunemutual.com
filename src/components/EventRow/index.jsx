@@ -1,6 +1,4 @@
-import Link from "next/link";
 import DateLib from "../../../lib/date/DateLib";
-import { classNames } from "../../utils/classnames";
 import { formatCurrency } from "../../utils/formatter/currency";
 import { fromNow } from "../../utils/formatter/relative-time";
 import styles from "./styles.module.scss";

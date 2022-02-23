@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import { useRouter } from "next/router";
 
 export const AddressTitleBar = ({ address, points }) => {
   return (

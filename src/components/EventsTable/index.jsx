@@ -4,8 +4,6 @@ import styles from "./styles.module.scss";
 
 export const EventsTable = ({
   data,
-  searchTerm,
-  setSearchTerm,
   skip,
   setSkip,
   limit,

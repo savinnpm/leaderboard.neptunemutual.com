@@ -12,12 +12,19 @@ export function AddressRow({ data, index }) {
     <tr className={styles.row}>
       <td className={styles.rank_cell}>
         <div className={styles.rank_content}>
+          <span className="sr-only">Rank</span>
           <span className={classNames(index === 0 && styles.first)}>
             {index + 1}
           </span>
-          {index === 0 && <img src="/images/ranks/rank1.svg" width={"39px"} />}
-          {index === 1 && <img src="/images/ranks/rank2.svg" width={"31px"} />}
-          {index === 2 && <img src="/images/ranks/rank3.svg" width={"31px"} />}
+          {index === 0 && (
+            <img src="/images/ranks/rank1.svg" alt="" width={"39px"} />
+          )}
+          {index === 1 && (
+            <img src="/images/ranks/rank2.svg" alt="" width={"31px"} />
+          )}
+          {index === 2 && (
+            <img src="/images/ranks/rank3.svg" alt="" width={"31px"} />
+          )}
         </div>
       </td>
 

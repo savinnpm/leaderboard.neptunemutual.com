@@ -1,6 +1,5 @@
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
-import { SearchBox } from "../components/SearchBox";
 import { HallOfFame } from "../components/HallOfFame";
 import Head from "next/head";
 import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
