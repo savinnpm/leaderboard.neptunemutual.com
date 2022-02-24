@@ -7,7 +7,8 @@
 }
 
 html,
-body {
+body,
+#__next {
   height: 100%;
 }
 
@@ -25,12 +26,19 @@ body {
   background: #323875;
 }
 
+#__next {
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
+  flex: 1 1 auto;
   background: #323875;
   color: #fff;
   background-image: url("/images/bg.png"),
     linear-gradient(180deg, #3f4472 0%, #323875 100%);
   background-size: auto;
+  background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
 }
