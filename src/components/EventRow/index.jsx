@@ -5,7 +5,7 @@ import { BugReportModal } from "../BugReportModal";
 import styles from "./styles.module.scss";
 
 export function EventRow({ data }) {
-  const { eventDate, action, story, point, url } = data;
+  const { eventDate, action, story, point, url, underlying } = data;
 
   return (
     <tr className={styles.row}>
@@ -28,12 +28,12 @@ export function EventRow({ data }) {
             Tx
           </a>
         ) : (
-          <BugReportModal />
+          <BugReportModal underlying={underlying} />
         )}
       </td>
 
       <td className={styles.points_cell}>
-        <div>+{formatCurrency(point, "").short}</div>
+        <div>+{formatCurrency(point, "", true).short}</div>
       </td>
     </tr>
   );

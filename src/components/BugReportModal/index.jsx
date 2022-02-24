@@ -2,8 +2,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { XIcon } from "@heroicons/react/outline";
 import styles from "./styles.module.scss";
+import DateLib from "../../../lib/date/DateLib";
 
-export function BugReportModal() {
+export function BugReportModal({ underlying }) {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -53,7 +54,7 @@ export function BugReportModal() {
               <div className={styles.modal_wrapper}>
                 {/* Header with close */}
                 <div className={styles.modal_header}>
-                  <p>Bug Report #1234576</p>
+                  <p>Bug Report #{underlying.id}</p>
                   <button type="button" onClick={closeModal}>
                     <XIcon width={18} height={18} />
                   </button>
@@ -63,20 +64,20 @@ export function BugReportModal() {
                 <div className={styles.modal_content}>
                   {/* Title */}
                   <Dialog.Title as="h3" className={styles.modal_title}>
-                    Cannot Provide Liquidity
+                    {underlying.title}
                   </Dialog.Title>
                   <p className={styles.modal_subtitle}>
-                    Reported On: 1/1/2022 23:12 UTC
+                    Reported On:{" "}
+                    {DateLib.toLongDateFormat(
+                      Math.floor(parseInt(underlying.createdAt, 10) / 1000),
+                      "UTC"
+                    )}
                   </p>
 
                   <div className={styles.modal_description}>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Consequat mauris nunc congue nisi vitae. Metus
-                      vulputate eu scelerisque felis imperdiet proin fermentum
-                      leo. In tellus integer feugiat scelerisq
-                    </p>
+                    {underlying.description.split("\n").map((line, idx) => {
+                      return <p key={idx}>{line}</p>;
+                    })}
 
                     <a
                       href="https://example.com"

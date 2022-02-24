@@ -6,8 +6,8 @@ const asCurrency = (sign, number, symbol, currency, token = false) => {
   }
 
   const formatter = new Intl.NumberFormat(getLocale(), {
-    style: currency ? "currency" : undefined,
-    currency: currency || undefined,
+    style: "currency",
+    currency,
   });
 
   return `${sign}${formatter.format(number)}${symbol}`;
