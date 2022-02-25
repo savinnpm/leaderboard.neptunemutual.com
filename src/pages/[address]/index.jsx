@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useAccountInfo } from "../../hooks/useAccountInfo";
 import { Footer } from "../../components/Footer";
+import { UserDetails } from "../../components/UserDetails";
 
 export default function Events() {
   const router = useRouter();
@@ -30,10 +31,12 @@ export default function Events() {
       <div className="content">
         <BackButton />
 
-        <AddressTitleBar address={address} points={data.totalPoints} />
-
-        {/* Table */}
         <div className="container">
+          <UserDetails data={data.user} />
+
+          <AddressTitleBar address={address} points={data.totalPoints} />
+
+          {/* Table */}
           <EventsTable
             data={data.items}
             searchTerm={searchTerm}

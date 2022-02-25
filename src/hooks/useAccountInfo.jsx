@@ -7,6 +7,12 @@ const defaultInfo = {
   limit: 1,
   records: 0,
   totalPoints: 0,
+  user: {
+    address: "",
+    createdAt: "",
+    name: "",
+    updatedAt: "",
+  },
 };
 
 export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
