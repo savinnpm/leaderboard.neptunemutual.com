@@ -6,23 +6,21 @@ import { formatCurrency } from "../../utils/formatter/currency";
 import styles from "./styles.module.scss";
 
 export function AddressRow({ data, index }) {
-  const { address, name, totalPoints } = data;
+  const { rank, address, name, totalPoints } = data;
 
   return (
     <tr className={styles.row}>
       <td className={styles.rank_cell}>
         <div className={styles.rank_content}>
           <span className="sr-only">Rank</span>
-          <span className={classNames(index === 0 && styles.first)}>
-            {index + 1}
-          </span>
-          {index === 0 && (
+          <span className={classNames(rank === 1 && styles.first)}>{rank}</span>
+          {rank === 1 && (
             <img src="/images/ranks/rank1.svg" alt="" width={"39px"} />
           )}
-          {index === 1 && (
+          {rank === 2 && (
             <img src="/images/ranks/rank2.svg" alt="" width={"31px"} />
           )}
-          {index === 2 && (
+          {rank === 3 && (
             <img src="/images/ranks/rank3.svg" alt="" width={"31px"} />
           )}
         </div>
