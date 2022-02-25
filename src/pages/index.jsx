@@ -2,7 +2,7 @@ import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { HallOfFame } from "../components/HallOfFame";
 import Head from "next/head";
-import { PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
+import { LIMIT, PAGE_DESCRIPTION, PAGE_TITLE } from "../config";
 import { useEffect, useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
@@ -11,7 +11,7 @@ import { Footer } from "../components/Footer";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(8);
+  const [limit, setLimit] = useState(LIMIT);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data } = useGetLeaderboard({
     skip,
@@ -21,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     setSkip(0);
-    setLimit(8);
+    setLimit(LIMIT);
   }, [searchTerm]);
 
   return (

@@ -33,7 +33,7 @@ export const HallOfFame = ({
                 <th className={styles.rank_head_cell}>Rank</th>
                 <th></th>
                 <th className={styles.name_head_cell}>Moniker</th>
-                <th>Wallet Address</th>
+                <th className={styles.address_head_cell}>Wallet Address</th>
                 <th>Points</th>
                 <th></th>
               </tr>

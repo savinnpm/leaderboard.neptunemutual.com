@@ -8,6 +8,7 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { useAccountInfo } from "../../hooks/useAccountInfo";
 import { Footer } from "../../components/Footer";
 import { UserDetails } from "../../components/UserDetails";
+import { LIMIT } from "../../config";
 
 export default function Events() {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function Events() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(8);
+  const [limit, setLimit] = useState(LIMIT);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data } = useAccountInfo({
     address,

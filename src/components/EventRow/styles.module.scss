@@ -4,30 +4,32 @@
   }
 
   td {
-    padding: 1.5rem 16px 1.5rem 0;
+    padding: 1.5rem 1rem 1.5rem 0;
     line-height: 1;
   }
 }
 
 td.time_cell {
+  width: 12rem;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   padding: 1.5rem;
   background-color: #3d437a;
 }
 
 td.action_cell {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   padding: 1.5rem;
 }
 
 td.view_cell {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   padding: 1.5rem;
+  width: 10rem;
 
   a,
   button {
@@ -43,4 +45,5 @@ td.points_cell {
   line-height: 23px;
   text-align: right;
   padding: 1.5rem;
+  width: 8rem;
 }
