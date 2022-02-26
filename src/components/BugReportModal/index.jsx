@@ -91,7 +91,7 @@ export function BugReportModal({ underlying }) {
                       onClick={() => setShowFull(true)}
                       className={styles.read_more}
                     >
-                      Read more
+                      Show more
                     </button>
                   )}
 

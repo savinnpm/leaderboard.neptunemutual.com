@@ -1,3 +1,4 @@
+import { BUG_REPORT_URL } from "../../config";
 import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
@@ -17,11 +18,7 @@ export const HallOfFame = ({
       <div className="container">
         <div className={styles.title_container}>
           <h2 className={styles.title}>Hall of Fame</h2>
-          <a
-            href="https://forms.clickup.com/f/6vvfh-4944/A2NSTHPDFMUPCHTU0Q"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={BUG_REPORT_URL} target="_blank" rel="noopener noreferrer">
             SUBMIT BUG REPORT
           </a>
         </div>
