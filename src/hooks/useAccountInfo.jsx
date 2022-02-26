@@ -5,6 +5,7 @@ const defaultInfo = {
   items: [],
   skip: 0,
   limit: 1,
+  rank: null,
   records: 0,
   totalPoints: 0,
   user: {

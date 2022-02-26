@@ -1,22 +1,26 @@
+import { useRouter } from "next/router";
 import { getAvatarSvg } from "../../utils/avatar";
 import styles from "./styles.module.scss";
 
-export const UserDetails = ({ data }) => {
+export const UserDetails = ({ data, rank }) => {
+  const { query } = useRouter();
+
   const { name, address } = data;
-  const rank = 1;
 
   return (
     <div className={styles.wrapper}>
       {/* Avatar */}
       <div
         className={styles.image_wrapper}
-        dangerouslySetInnerHTML={{ __html: getAvatarSvg(address) }}
+        dangerouslySetInnerHTML={{
+          __html: getAvatarSvg(address || query.address),
+        }}
       ></div>
 
       {/* Data */}
       <div className={styles.data_wrapper}>
         {/* Name */}
-        <h1>{name}</h1>
+        <h1>{name || "\xA0"}</h1>
 
         {/* Rank */}
         <div className={styles.rank_wrapper}>
