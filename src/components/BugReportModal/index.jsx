@@ -3,9 +3,11 @@ import { Fragment, useState } from "react";
 import { XIcon } from "@heroicons/react/outline";
 import styles from "./styles.module.scss";
 import DateLib from "../../../lib/date/DateLib";
+import { classNames } from "../../utils/classnames";
 
 export function BugReportModal({ underlying }) {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showFull, setShowFull] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -74,25 +76,36 @@ export function BugReportModal({ underlying }) {
                     )}
                   </p>
 
-                  <div className={styles.modal_description}>
+                  <div
+                    className={classNames(
+                      styles.modal_description,
+                      showFull && styles.full
+                    )}
+                  >
                     {underlying.description.split("\n").map((line, idx) => {
                       return <p key={idx}>{line}</p>;
                     })}
-
-                    <a
-                      href="https://example.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  </div>
+                  {!showFull && (
+                    <button
+                      onClick={() => setShowFull(true)}
                       className={styles.read_more}
                     >
                       Read more
-                    </a>
-                  </div>
+                    </button>
+                  )}
 
                   <div className={styles.status}>
                     <p>
                       Status:{" "}
-                      <span className={styles.status_badge}>Accepted</span>
+                      <span
+                        className={classNames(
+                          styles.status_badge,
+                          underlying.accepted && styles.success
+                        )}
+                      >
+                        {underlying.accepted ? "Accepted" : "Not accepted"}
+                      </span>
                     </p>
                   </div>
                 </div>
