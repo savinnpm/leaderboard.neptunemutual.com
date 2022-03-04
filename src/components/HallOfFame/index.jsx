@@ -1,4 +1,5 @@
-import { BUG_REPORT_URL } from "../../config";
+import { BUG_REPORT_URL, LIMIT } from "../../config";
+import { AddressRowSkeleton } from "../AddressRow/skeleton";
 import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
@@ -37,9 +38,13 @@ export const HallOfFame = ({
             </thead>
 
             <tbody>
-              {data.map((x, idx) => (
-                <AddressRow key={x.address} data={x} index={idx + skip} />
-              ))}
+              {data.length
+                ? data.map((x, idx) => (
+                    <AddressRow key={idx} data={x} index={idx + skip} />
+                  ))
+                : Array(LIMIT)
+                    .fill(0)
+                    .map((_, i) => <AddressRowSkeleton key={i} />)}
             </tbody>
           </table>
 
