@@ -2,7 +2,6 @@ import { EventRow } from "../EventRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 import { EventRowSkeleton } from "../EventRow/skeleton";
-import { LIMIT } from "../../config";
 
 export const EventsTable = ({
   data,
@@ -30,7 +29,7 @@ export const EventsTable = ({
               ? data.map((x, idx) => (
                   <EventRow key={x._id} data={x} index={idx + skip} />
                 ))
-              : Array(LIMIT)
+              : Array(limit)
                   .fill(0)
                   .map((_, i) => <EventRowSkeleton key={i} />)}
           </tbody>
