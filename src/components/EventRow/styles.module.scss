@@ -47,3 +47,62 @@ td.points_cell {
   padding: 1.5rem;
   width: 8rem;
 }
+
+// styles for skeleton
+.skeleton {
+  background-color: rgba($color: #fff, $alpha: 0.25);
+  animation: blink 750ms ease-in infinite alternate;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.time_cell_skel {
+  display: block;
+  color: transparent;
+  width: 60%;
+}
+
+.action_cell_skel {
+  display: block;
+  color: transparent;
+  width: 90%;
+}
+
+.view_cell_skel {
+  display: block;
+  color: transparent;
+  width: 20%;
+}
+
+.points_cell_skel {
+  display: block;
+  color: transparent;
+  width: 50%;
+  margin-left: auto;
+}
+
+// row fade-in animation
+.row.fade_in {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade_in {
+  animation: fadeIn 1000ms ease forwards;
+}

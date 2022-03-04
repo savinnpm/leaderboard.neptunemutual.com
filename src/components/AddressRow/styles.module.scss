@@ -90,25 +90,7 @@ td .link {
   padding: 16px;
 }
 
-// row fade-in animation
-.row.fade_in {
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fade_in {
-  animation: fadeIn 1000ms ease forwards;
-}
-
-// styles fro skeletons
+// styles for skeletons
 .skeleton {
   background-color: rgba($color: #fff, $alpha: 0.25);
   animation: blink 750ms ease-in infinite alternate;
@@ -148,4 +130,22 @@ td .link {
   display: block;
   color: transparent;
   width: 50px;
+}
+
+// row fade-in animation
+.row.fade_in {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade_in {
+  animation: fadeIn 1000ms ease forwards;
 }
