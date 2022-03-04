@@ -48,11 +48,13 @@ export function AddressRow({ data, index }) {
       </td>
 
       <td>
-        <Link href={`/${address}`}>
-          <a className={styles.link}>
-            <ArrowRightIcon height={18} />
-          </a>
-        </Link>
+        {address !== "0x0000000000000000000000000000000000000000" && (
+          <Link href={`/${address}`}>
+            <a className={styles.link}>
+              <ArrowRightIcon height={18} />
+            </a>
+          </Link>
+        )}
       </td>
     </tr>
   );
