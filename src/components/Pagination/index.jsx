@@ -29,6 +29,8 @@ export const Pagination = ({
 
     if (newPage && newPage > 0) {
       // setSkip((newPage - 1) * limit);
+      if ((isFirstPage && newPage < page) || (isLastPage && newPage > page))
+        return;
       router.push({
         pathname: router.asPath.split("?")[0],
         query: { skip: (newPage - 1) * limit, limit: limit },
