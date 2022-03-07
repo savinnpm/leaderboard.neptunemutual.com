@@ -30,6 +30,10 @@ export default function Events() {
       setSkip(parseInt(router.query.skip));
     if (router.query.limit && parseInt(router.query.limit) !== NaN)
       setLimit(parseInt(router.query.limit));
+    if (!router.query.skip && !router.query.limit) {
+      setSkip(0);
+      setLimit(LIMIT);
+    }
   }, [router]);
 
   return (
