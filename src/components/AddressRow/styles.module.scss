@@ -4,7 +4,7 @@
   }
 
   td {
-    padding: 1.5rem 16px 1.5rem 0;
+    padding: 1.4rem 16px 1.4rem 0;
     line-height: 1;
   }
 }
@@ -60,7 +60,7 @@ td.name_cell {
   padding-right: 1rem;
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 23px;
 
   h3 {
     white-space: nowrap;
@@ -71,6 +71,7 @@ td.name_cell {
   &.name_cell_0 {
     font-weight: 600;
     font-size: 23px;
+    line-height: 37px;
   }
 }
 
