@@ -14,7 +14,7 @@ export default function Home() {
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(LIMIT);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const { data } = useGetLeaderboard({
+  const { data, isLoading } = useGetLeaderboard({
     skip,
     limit,
     searchTerm: debouncedSearchTerm,
@@ -54,6 +54,7 @@ export default function Home() {
           limit={limit}
           setLimit={setLimit}
           totalUsers={data.totalUsers}
+          loading={isLoading}
         />
 
         <Footer />

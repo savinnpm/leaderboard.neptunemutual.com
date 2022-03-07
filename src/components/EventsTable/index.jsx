@@ -2,6 +2,7 @@ import { EventRow } from "../EventRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 import { EventRowSkeleton } from "../EventRow/skeleton";
+import { NoData } from "../NoData";
 
 export const EventsTable = ({
   data,
@@ -10,6 +11,7 @@ export const EventsTable = ({
   limit,
   setLimit,
   records,
+  loading,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -25,13 +27,19 @@ export const EventsTable = ({
           </thead>
 
           <tbody>
-            {data.length
-              ? data.map((x, idx) => (
+            {!loading ? (
+              data.length ? (
+                data.map((x, idx) => (
                   <EventRow key={x._id} data={x} index={idx + skip} />
                 ))
-              : Array(limit)
-                  .fill(0)
-                  .map((_, i) => <EventRowSkeleton key={i} />)}
+              ) : (
+                <NoData />
+              )
+            ) : (
+              Array(limit)
+                .fill(0)
+                .map((_, i) => <EventRowSkeleton key={i} />)
+            )}
           </tbody>
         </table>
 

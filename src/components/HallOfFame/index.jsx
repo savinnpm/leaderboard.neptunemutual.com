@@ -3,6 +3,7 @@ import { AddressRowSkeleton } from "../AddressRow/skeleton";
 import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
+import { NoData } from "../NoData";
 
 export const HallOfFame = ({
   data,
@@ -13,6 +14,7 @@ export const HallOfFame = ({
   limit,
   setLimit,
   totalUsers,
+  loading,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -38,13 +40,19 @@ export const HallOfFame = ({
             </thead>
 
             <tbody>
-              {data.length
-                ? data.map((x, idx) => (
+              {!loading ? (
+                data.length ? (
+                  data.map((x, idx) => (
                     <AddressRow key={idx} data={x} index={idx + skip} />
                   ))
-                : Array(limit)
-                    .fill(0)
-                    .map((_, i) => <AddressRowSkeleton key={i} />)}
+                ) : (
+                  <NoData />
+                )
+              ) : (
+                Array(limit)
+                  .fill(0)
+                  .map((_, i) => <AddressRowSkeleton key={i} />)
+              )}
             </tbody>
           </table>
 

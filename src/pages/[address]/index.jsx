@@ -18,7 +18,7 @@ export default function Events() {
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(LIMIT);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const { data } = useAccountInfo({
+  const { data, isLoading } = useAccountInfo({
     address,
     skip,
     limit,
@@ -54,6 +54,7 @@ export default function Events() {
             limit={limit}
             setLimit={setLimit}
             records={data.records}
+            loading={isLoading}
           />
         </div>
 
