@@ -37,15 +37,25 @@ export const Footer = () => {
   return (
     <footer>
       <div className={classNames("container", styles.footer)}>
-        <div></div>
-
         <p className={styles.credits_wrapper}>
+          {'"'}
           <a
-            href="https://example.com"
+            href="https://avatars.dicebear.com/styles/micah"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
+            className={styles.link_ul}
           >
-            Credits
+            Micah
+          </a>
+          {'"'}
+          {" by Micah Lanier is licensed under "}
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className={styles.link_ul}
+          >
+            CC BY 4.0
           </a>
         </p>
 
