@@ -2,6 +2,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { SearchBox } from "../SearchBox";
 import styles from "./styles.module.scss";
 
+import { useRouter } from "next/router";
+
 export const Pagination = ({
   noSearch,
   searchTerm,
@@ -20,11 +22,17 @@ export const Pagination = ({
   const isLastPage = to >= records;
   const isFirstPage = skip - limit < 0;
 
+  const router = useRouter();
+
   const handlePageChange = (ev) => {
     const newPage = ev.target.value;
 
     if (newPage && newPage > 0) {
-      setSkip((newPage - 1) * limit);
+      // setSkip((newPage - 1) * limit);
+      router.push({
+        pathname: router.asPath.split("?")[0],
+        query: { skip: (newPage - 1) * limit, limit: limit },
+      });
     }
   };
 
@@ -52,7 +60,11 @@ export const Pagination = ({
         <button
           className={styles.pagination_btn}
           onClick={() => {
-            setSkip((prev) => prev - limit);
+            // setSkip((prev) => prev - limit);
+            router.push({
+              pathname: router.asPath.split("?")[0],
+              query: { skip: skip - limit, limit: limit },
+            });
           }}
           disabled={isFirstPage}
         >
@@ -61,7 +73,11 @@ export const Pagination = ({
         <button
           className={styles.pagination_btn}
           onClick={() => {
-            setSkip((prev) => prev + limit);
+            // setSkip((prev) => prev + limit);
+            router.push({
+              pathname: router.asPath.split("?")[0],
+              query: { skip: skip + limit, limit: limit },
+            });
           }}
           disabled={isLastPage}
         >
