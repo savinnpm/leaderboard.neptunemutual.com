@@ -40,8 +40,7 @@ export default function Events() {
         <BackButton />
 
         <div className="container">
-          <UserDetails data={data.user} rank={data.rank} />
-
+          {data.user && <UserDetails data={data.user} rank={data.rank} />}
           <AddressTitleBar address={address} points={data.totalPoints} />
 
           {/* Table */}
