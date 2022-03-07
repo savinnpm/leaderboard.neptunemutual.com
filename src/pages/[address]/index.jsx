@@ -57,7 +57,7 @@ export default function Events() {
           />
         </div>
 
-        <Footer />
+        <Footer page={"profile"} points={data.totalPoints} />
       </div>
     </>
   );

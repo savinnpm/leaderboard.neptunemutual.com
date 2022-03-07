@@ -57,7 +57,7 @@ export default function Home() {
           loading={isLoading}
         />
 
-        <Footer />
+        <Footer page={"leaderboard"} />
       </div>
     </>
   );
