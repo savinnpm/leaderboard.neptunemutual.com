@@ -24,7 +24,7 @@ export function AddressRowSkeleton() {
 
       <td className={styles.address_cell}>
         <span className={classNames(styles.address_cell_skel, styles.skeleton)}>
-          .
+          0x0000000000000000000000000000000000000000
         </span>
       </td>
 
@@ -34,7 +34,7 @@ export function AddressRowSkeleton() {
         </span>
       </td>
 
-      <td>{/* h-18 */}</td>
+      <td></td>
     </tr>
   );
 }
