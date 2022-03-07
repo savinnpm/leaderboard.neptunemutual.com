@@ -1,11 +1,14 @@
 .row {
   &:not(:last-child) {
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
   }
 
   td {
     padding: 1.5rem 1rem 1.5rem 0;
     line-height: 1;
+    &:not(:nth-child(1)) {
+      background-color: #5b6097;
+    }
   }
 }
 

@@ -43,7 +43,12 @@ export function AddressRow({ data, index }) {
 
       <td className={styles.address_cell}>{address}</td>
 
-      <td className={styles.points_cell}>
+      <td
+        className={classNames(
+          styles.points_cell,
+          styles[`points_cell_${index}`]
+        )}
+      >
         <div>{formatCurrency(totalPoints, "", true).short}</div>
       </td>
 
