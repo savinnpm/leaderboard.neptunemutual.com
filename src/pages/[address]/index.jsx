@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { BackButton } from "../../components/BackButton";
 import { AddressTitleBar } from "../../components/AddressTitleBar";
 import { EventsTable } from "../../components/EventsTable";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useAccountInfo } from "../../hooks/useAccountInfo";
 import { Footer } from "../../components/Footer";
@@ -24,6 +24,13 @@ export default function Events() {
     limit,
     searchTerm: debouncedSearchTerm,
   });
+
+  useEffect(() => {
+    if (router.query.skip && parseInt(router.query.skip) !== NaN)
+      setSkip(parseInt(router.query.skip));
+    if (router.query.limit && parseInt(router.query.limit) !== NaN)
+      setLimit(parseInt(router.query.limit));
+  }, [router]);
 
   return (
     <>
