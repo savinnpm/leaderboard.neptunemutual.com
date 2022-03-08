@@ -35,6 +35,8 @@ export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
       url.searchParams.set("search", searchTerm);
     }
 
+    if (isNaN(parseInt(skip)) || isNaN(parseInt(limit))) return;
+
     url.searchParams.set("skip", skip);
     url.searchParams.set("limit", limit);
 

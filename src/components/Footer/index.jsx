@@ -8,13 +8,43 @@ import TwitterIcon from "../icons/TwitterIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 import styles from "./styles.module.scss";
 
-export const Footer = () => {
+const leaderTexts = [
+  `Neptune Mutual just launched their protocol testnet! I've been having fun and getting points trying out their platform.\n\nCheck out the latest rankings on their Hall of Fame leaderboard:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+  `Who knew you could playtest a DeFi protocol? Join me as one of the first to experience Neptune Mutual’s parametric cover platform.\n\nClimb their leaderboard ranks with every test you make:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+  `Have fun and test Neptune Mutual’s latest public testnet with me. Every test you make only gets more and more rewarding.\n\nSee their Hall of Fame leaderboard rankings live:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+];
+const profileTexts = [
+  `Testing my way to the top! I’ve gained <POINT> points so far since I’ve been using Neptune Mutual’s testnet.\n\nJoin me and check out my progress:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+  `I’ve racked up <POINT> points on Neptune Mutual’s protocol testnet. This has got to be my most unique testnet experience ever!\n\nTake a look at my recent activity:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+  `Be one of the first to try out Neptune Mutual! I’ve made <POINT> points so far completing tasks on their public testnet.\n\nTake a look at my progress:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
+];
+
+export const Footer = ({ page, points }) => {
   const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState("");
-  const text = `Neptune Mutual Leaderboard`;
+  const [text, setText] = useState("");
+
+  const getText = () => {
+    let randomIndex, randomText, replaceUrl;
+    if (typeof window !== "undefined") {
+      if (page === "leaderboard") {
+        randomIndex = Math.floor(Math.random() * leaderTexts.length);
+        randomText = leaderTexts[randomIndex];
+        replaceUrl = window.location.origin;
+      } else if (page === "profile") {
+        randomIndex = Math.floor(Math.random() * profileTexts.length);
+        randomText = profileTexts[randomIndex];
+        replaceUrl = window.location.href;
+      }
+      randomText = randomText.replace("<URL>", replaceUrl);
+      randomText = randomText.replace("<POINT>", points);
+    }
+    return randomText;
+  };
 
   useEffect(() => {
     setUrl(window.location.origin);
+    setText(getText());
   }, []);
 
   useEffect(() => {
@@ -27,7 +57,8 @@ export const Footer = () => {
 
   const copyAddress = () => {
     try {
-      navigator.clipboard.writeText(url);
+      const currentUrl = window.location.href;
+      navigator.clipboard.writeText(currentUrl);
     } catch (error) {
       console.log("Cannot copy");
     }
@@ -37,15 +68,25 @@ export const Footer = () => {
   return (
     <footer>
       <div className={classNames("container", styles.footer)}>
-        <div></div>
-
         <p className={styles.credits_wrapper}>
+          {'"'}
           <a
-            href="https://example.com"
+            href="https://avatars.dicebear.com/styles/micah"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
+            className={styles.link_ul}
           >
-            Credits
+            Micah
+          </a>
+          {'"'}
+          {" by Micah Lanier is licensed under "}
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className={styles.link_ul}
+          >
+            CC BY 4.0
           </a>
         </p>
 
@@ -54,9 +95,9 @@ export const Footer = () => {
 
           <p className={styles.share_links}>
             <a
-              href={`https://twitter.com/share?url=${encodeURIComponent(
-                url
-              )}&text=${encodeURIComponent(text)}`}
+              href={`https://twitter.com/share?text=${encodeURIComponent(
+                text
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -86,7 +127,7 @@ export const Footer = () => {
             <a
               href={`https://web.whatsapp.com/send?text=${encodeURIComponent(
                 text
-              )}%3A%3A%20${encodeURIComponent(url)}`}
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -94,7 +94,10 @@ class MyDocument extends Document {
           <meta property="twitter:domain" content="neptunemutual.com" />
           <meta name="twitter:title" content={PAGE_TITLE} />
           <meta name="twitter:description" content={PAGE_DESCRIPTION} />
-          <meta name="twitter:image" content="/images/og.png" />
+          <meta
+            name="twitter:image"
+            content="https://leaderboard.neptunemutual.com/images/og.png"
+          />
         </Head>
 
         <body>

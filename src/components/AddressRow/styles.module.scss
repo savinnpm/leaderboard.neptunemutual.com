@@ -1,11 +1,15 @@
 .row {
   &:not(:last-child) {
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
   }
 
   td {
-    padding: 1.5rem 16px 1.5rem 0;
+    padding: 1.4rem 16px 1.4rem 0;
     line-height: 1;
+
+    &:not(:nth-child(1)):not(:nth-child(2)) {
+      background-color: #5b6097;
+    }
   }
 }
 
@@ -60,7 +64,7 @@ td.name_cell {
   padding-right: 1rem;
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 23px;
 
   h3 {
     white-space: nowrap;
@@ -71,6 +75,7 @@ td.name_cell {
   &.name_cell_0 {
     font-weight: 600;
     font-size: 23px;
+    line-height: 37px;
   }
 }
 
@@ -84,8 +89,80 @@ td.points_cell {
   font-weight: 600;
   font-size: 19px;
   line-height: 23px;
+
+  &.points_cell_0 {
+    font-size: 22px;
+  }
 }
 
 td .link {
   padding: 16px;
+}
+
+// styles for skeletons
+.skeleton {
+  background-color: rgba($color: #fff, $alpha: 0.25);
+  animation: blink 750ms ease-in infinite alternate;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rank_content_skel {
+  display: block;
+  width: 25px;
+  height: 35px;
+}
+
+.name_cell_skel {
+  max-width: 16rem;
+  h3 {
+    display: block;
+    font-weight: 600;
+    color: transparent;
+  }
+}
+
+.address_cell_skel {
+  display: block;
+  width: 80%;
+  height: 100%;
+  color: transparent;
+}
+
+.points_cell_skel {
+  display: block;
+  color: transparent;
+  width: 50px;
+  // font-size: 22px;
+}
+
+.arrow_skel {
+  color: transparent;
+  padding-right: 1.8rem !important;
+}
+
+// row fade-in animation
+.row.fade_in {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade_in {
+  animation: fadeIn 1000ms ease forwards;
 }

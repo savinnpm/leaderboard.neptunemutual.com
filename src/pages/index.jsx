@@ -7,22 +7,39 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { useGetLeaderboard } from "../hooks/useGetLeaderboard";
 import { Footer } from "../components/Footer";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(LIMIT);
+  const [skip, setSkip] = useState(null);
+  const [limit, setLimit] = useState(null);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const { data } = useGetLeaderboard({
+  const { data, isLoading } = useGetLeaderboard({
     skip,
     limit,
     searchTerm: debouncedSearchTerm,
   });
+  const router = useRouter();
 
   useEffect(() => {
-    setSkip(0);
-    setLimit(LIMIT);
+    if (searchTerm !== "") {
+      setSkip(0);
+      setLimit(LIMIT);
+    }
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (router.query.skip && !isNaN(parseInt(router.query.skip)))
+        setSkip(parseInt(router.query.skip));
+      if (router.query.limit && !isNaN(parseInt(router.query.limit)))
+        setLimit(parseInt(router.query.limit));
+      if (!router.query.skip && !router.query.limit) {
+        setSkip(0);
+        setLimit(LIMIT);
+      }
+    }
+  }, [router]);
 
   return (
     <>
@@ -45,9 +62,10 @@ export default function Home() {
           limit={limit}
           setLimit={setLimit}
           totalUsers={data.totalUsers}
+          loading={isLoading}
         />
 
-        <Footer />
+        <Footer page={"leaderboard"} />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ export function AddressRow({ data, index }) {
   const { rank, address, name, totalPoints } = data;
 
   return (
-    <tr className={styles.row}>
+    <tr className={classNames(styles.row, styles.fade_in)}>
       <td className={styles.rank_cell}>
         <div className={styles.rank_content}>
           <span className="sr-only">Rank</span>
@@ -43,7 +43,12 @@ export function AddressRow({ data, index }) {
 
       <td className={styles.address_cell}>{address}</td>
 
-      <td className={styles.points_cell}>
+      <td
+        className={classNames(
+          styles.points_cell,
+          styles[`points_cell_${index}`]
+        )}
+      >
         <div>{formatCurrency(totalPoints, "", true).short}</div>
       </td>
 

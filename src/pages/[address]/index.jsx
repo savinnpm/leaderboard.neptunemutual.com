@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { BackButton } from "../../components/BackButton";
 import { AddressTitleBar } from "../../components/AddressTitleBar";
 import { EventsTable } from "../../components/EventsTable";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useAccountInfo } from "../../hooks/useAccountInfo";
 import { Footer } from "../../components/Footer";
@@ -15,15 +15,28 @@ export default function Events() {
   const { address } = router.query;
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(LIMIT);
+  const [skip, setSkip] = useState(null);
+  const [limit, setLimit] = useState(null);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  const { data } = useAccountInfo({
+  const { data, isLoading } = useAccountInfo({
     address,
     skip,
     limit,
     searchTerm: debouncedSearchTerm,
   });
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (router.query.skip && !isNaN(parseInt(router.query.skip)))
+        setSkip(parseInt(router.query.skip));
+      if (router.query.limit && !isNaN(parseInt(router.query.limit)))
+        setLimit(parseInt(router.query.limit));
+      if (!router.query.skip && !router.query.limit) {
+        setSkip(0);
+        setLimit(LIMIT);
+      }
+    }
+  }, [router]);
 
   return (
     <>
@@ -33,8 +46,7 @@ export default function Events() {
         <BackButton />
 
         <div className="container">
-          <UserDetails data={data.user} rank={data.rank} />
-
+          {data.user && <UserDetails data={data.user} rank={data.rank} />}
           <AddressTitleBar address={address} points={data.totalPoints} />
 
           {/* Table */}
@@ -47,10 +59,11 @@ export default function Events() {
             limit={limit}
             setLimit={setLimit}
             records={data.records}
+            loading={isLoading}
           />
         </div>
 
-        <Footer />
+        <Footer page={"profile"} points={data.totalPoints} />
       </div>
     </>
   );

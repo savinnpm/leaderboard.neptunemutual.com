@@ -1,4 +1,5 @@
 import DateLib from "../../../lib/date/DateLib";
+import { classNames } from "../../utils/classnames";
 import { formatCurrency } from "../../utils/formatter/currency";
 import { fromNow } from "../../utils/formatter/relative-time";
 import { BugReportModal } from "../BugReportModal";
@@ -8,7 +9,7 @@ export function EventRow({ data }) {
   const { eventDate, action, story, point, url, underlying } = data;
 
   return (
-    <tr className={styles.row}>
+    <tr className={classNames(styles.row, styles.fade_in)}>
       <td className={styles.time_cell}>
         <time
           dateTime={eventDate}
