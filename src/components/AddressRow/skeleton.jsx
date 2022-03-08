@@ -36,7 +36,7 @@ export function AddressRowSkeleton() {
       </td>
 
       <td className={styles.arrow_skel}>
-        <ArrowRightIcon height={20} />
+        <ArrowRightIcon height={18} />
       </td>
     </tr>
   );
