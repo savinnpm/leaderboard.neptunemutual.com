@@ -11,8 +11,8 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(LIMIT);
+  const [skip, setSkip] = useState(null);
+  const [limit, setLimit] = useState(null);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data, isLoading } = useGetLeaderboard({
     skip,
@@ -22,18 +22,22 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    setSkip(0);
-    setLimit(LIMIT);
+    if (searchTerm !== "") {
+      setSkip(0);
+      setLimit(LIMIT);
+    }
   }, [searchTerm]);
 
   useEffect(() => {
-    if (router.query.skip && parseInt(router.query.skip) !== NaN)
-      setSkip(parseInt(router.query.skip));
-    if (router.query.limit && parseInt(router.query.limit) !== NaN)
-      setLimit(parseInt(router.query.limit));
-    if (!router.query.skip && !router.query.limit) {
-      setSkip(0);
-      setLimit(LIMIT);
+    if (router.isReady) {
+      if (router.query.skip && !isNaN(parseInt(router.query.skip)))
+        setSkip(parseInt(router.query.skip));
+      if (router.query.limit && !isNaN(parseInt(router.query.limit)))
+        setLimit(parseInt(router.query.limit));
+      if (!router.query.skip && !router.query.limit) {
+        setSkip(0);
+        setLimit(LIMIT);
+      }
     }
   }, [router]);
 

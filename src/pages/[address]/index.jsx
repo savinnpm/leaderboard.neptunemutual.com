@@ -15,8 +15,8 @@ export default function Events() {
   const { address } = router.query;
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(LIMIT);
+  const [skip, setSkip] = useState(null);
+  const [limit, setLimit] = useState(null);
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data, isLoading } = useAccountInfo({
     address,
@@ -26,13 +26,15 @@ export default function Events() {
   });
 
   useEffect(() => {
-    if (router.query.skip && parseInt(router.query.skip) !== NaN)
-      setSkip(parseInt(router.query.skip));
-    if (router.query.limit && parseInt(router.query.limit) !== NaN)
-      setLimit(parseInt(router.query.limit));
-    if (!router.query.skip && !router.query.limit) {
-      setSkip(0);
-      setLimit(LIMIT);
+    if (router.isReady) {
+      if (router.query.skip && !isNaN(parseInt(router.query.skip)))
+        setSkip(parseInt(router.query.skip));
+      if (router.query.limit && !isNaN(parseInt(router.query.limit)))
+        setLimit(parseInt(router.query.limit));
+      if (!router.query.skip && !router.query.limit) {
+        setSkip(0);
+        setLimit(LIMIT);
+      }
     }
   }, [router]);
 
