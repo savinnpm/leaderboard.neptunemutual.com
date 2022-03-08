@@ -57,7 +57,8 @@ export const Footer = ({ page, points }) => {
 
   const copyAddress = () => {
     try {
-      navigator.clipboard.writeText(url);
+      const currentUrl = window.location.href;
+      navigator.clipboard.writeText(currentUrl);
     } catch (error) {
       console.log("Cannot copy");
     }
@@ -104,9 +105,9 @@ export const Footer = ({ page, points }) => {
               <TwitterIcon height={18} />
             </a>
             <a
-              href={`https://telegram.me/share/?&text=${encodeURIComponent(
-                text
-              )}`}
+              href={`https://telegram.me/share/?url=${encodeURIComponent(
+                url
+              )}&text=${encodeURIComponent(text)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -114,9 +115,9 @@ export const Footer = ({ page, points }) => {
               <TelegramIcon height={18} />
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?&quote=${encodeURIComponent(
-                text
-              )}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                url
+              )}&quote=${encodeURIComponent(text)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
