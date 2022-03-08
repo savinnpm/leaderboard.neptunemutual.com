@@ -6,25 +6,25 @@ export function EventRowSkeleton() {
     <tr className={styles.row}>
       <td className={styles.time_cell}>
         <span className={classNames(styles.time_cell_skel, styles.skeleton)}>
-          .
+          &nbsp;
         </span>
       </td>
 
       <td className={styles.action_cell}>
         <span className={classNames(styles.action_cell_skel, styles.skeleton)}>
-          .
+          &nbsp;
         </span>
       </td>
 
       <td className={styles.view_cell}>
         <span className={classNames(styles.view_cell_skel, styles.skeleton)}>
-          .
+          &nbsp;
         </span>
       </td>
 
       <td className={styles.points_cell}>
         <span className={classNames(styles.points_cell_skel, styles.skeleton)}>
-          .
+          &nbsp;
         </span>
       </td>
     </tr>

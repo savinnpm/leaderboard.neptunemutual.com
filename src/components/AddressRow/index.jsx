@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import { isZeroAddress } from "../../utils/address";
 import { getAvatarSvg } from "../../utils/avatar";
 import { classNames } from "../../utils/classnames";
 import { formatCurrency } from "../../utils/formatter/currency";
@@ -52,8 +53,8 @@ export function AddressRow({ data, index }) {
         <div>{formatCurrency(totalPoints, "", true).short}</div>
       </td>
 
-      <td>
-        {address !== "0x0000000000000000000000000000000000000000" && (
+      <td className={styles.action_cell}>
+        {!isZeroAddress(address) && (
           <Link href={`/${address}`}>
             <a className={styles.link}>
               <ArrowRightIcon height={18} />

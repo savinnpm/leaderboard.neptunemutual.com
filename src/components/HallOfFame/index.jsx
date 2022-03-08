@@ -31,11 +31,11 @@ export const HallOfFame = ({
             <thead className="thead">
               <tr>
                 <th className={styles.rank_head_cell}>Rank</th>
-                <th></th>
+                <th className={styles.image_head_cell}>&nbsp;</th>
                 <th className={styles.name_head_cell}>Moniker</th>
                 <th className={styles.address_head_cell}>Wallet Address</th>
-                <th>Points</th>
-                <th></th>
+                <th className={styles.points_head_cell}>Points</th>
+                <th className={styles.action_head_cell}></th>
               </tr>
             </thead>
 
