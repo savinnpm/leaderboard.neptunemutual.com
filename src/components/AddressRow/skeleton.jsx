@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "@heroicons/react/solid";
 import { classNames } from "../../utils/classnames";
 import styles from "./styles.module.scss";
 
@@ -34,7 +35,9 @@ export function AddressRowSkeleton() {
         </span>
       </td>
 
-      <td></td>
+      <td className={styles.arrow_skel}>
+        <ArrowRightIcon height={20} />
+      </td>
     </tr>
   );
 }
