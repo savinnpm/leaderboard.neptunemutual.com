@@ -37,12 +37,32 @@
 
 .rank_head_cell {
   padding-left: 3rem;
+  width: 10rem;
+}
+
+.image_head_cell {
+  width: 84px;
 }
 
 .name_head_cell {
+  width: 18.75rem;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .address_head_cell {
   padding-left: 1rem;
+  width: 25rem;
+}
+
+.points_head_cell {
+  width: 5rem;
+  padding-left: 1rem;
+  padding-right: 0;
+}
+
+.action_head_cell {
+  text-align: center;
+  width: 5.25rem;
+  padding: 1rem;
 }

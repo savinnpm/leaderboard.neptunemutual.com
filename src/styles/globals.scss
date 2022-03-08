@@ -107,11 +107,16 @@ button {
 }
 
 .table {
+  table-layout: fixed;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
   background: rgb(91, 96, 151, 0.25);
   backdrop-filter: blur(6px);
+
+  td {
+    white-space: nowrap;
+  }
 }
 
 .thead {

@@ -39,27 +39,22 @@ td.rank_cell {
 
 td.image_cell {
   padding: 0;
-  width: 1%;
+  width: 84px;
+  height: 84px;
 
-  .image_cell_content {
-    position: relative;
-    min-width: 84px;
-    min-height: 84px;
+  .image_cell_skel {
+    width: 100%;
+    height: 100%;
   }
 
   .image_wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     width: 84px;
     height: 84px;
   }
 }
 
 td.name_cell {
-  width: 16rem;
+  width: 18.75rem;
   padding-left: 1rem;
   padding-right: 1rem;
   font-weight: 600;
@@ -81,11 +76,16 @@ td.name_cell {
 
 td.address_cell {
   padding-left: 1rem;
+  padding-right: 0;
+  width: 25rem;
   font-size: 14px;
   line-height: 17px;
 }
 
 td.points_cell {
+  width: 5rem;
+  padding-left: 1rem;
+  padding-right: 0;
   font-weight: 600;
   font-size: 19px;
   line-height: 23px;
@@ -95,8 +95,10 @@ td.points_cell {
   }
 }
 
-td .link {
-  padding: 16px;
+td.action_cell {
+  text-align: center;
+  width: 5.25rem;
+  padding: 1rem;
 }
 
 // styles for skeletons
@@ -115,38 +117,28 @@ td .link {
   }
 }
 
-.rank_content_skel {
-  display: block;
-  width: 25px;
+.rank_cell_skel {
   height: 35px;
+  margin-left: -0.5rem;
 }
 
 .name_cell_skel {
-  max-width: 16rem;
+  width: 18.75rem;
   h3 {
-    display: block;
     font-weight: 600;
     color: transparent;
   }
 }
 
 .address_cell_skel {
-  display: block;
-  width: 80%;
-  height: 100%;
+  width: 90%;
+  height: 1rem;
   color: transparent;
 }
 
 .points_cell_skel {
-  display: block;
   color: transparent;
-  width: 50px;
-  // font-size: 22px;
-}
-
-.arrow_skel {
-  color: transparent;
-  padding-right: 1.8rem !important;
+  height: 1.75rem;
 }
 
 // row fade-in animation
