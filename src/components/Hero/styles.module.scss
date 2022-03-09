@@ -5,9 +5,9 @@
 .container {
   color: #989ab8;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 
   h1 {
     text-transform: uppercase;
@@ -15,27 +15,47 @@
     font-size: 1.5rem;
     line-height: 29px;
   }
+
+  @media (min-width: 75em) {
+    flex-direction: row;
+  }
 }
 
 .graphic_container {
-  padding-bottom: 20px;
-  margin-right: 28px;
+  padding-bottom: 0.625rem;
+  margin-right: 0;
+
+  @media (min-width: 75em) {
+    padding-bottom: 20px;
+    margin-right: 28px;
+  }
 }
 
 .title_container {
   display: flex;
   align-items: center;
+  flex-direction: column;
 
   h1 {
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 29px;
     color: #adafc6;
+    margin-bottom: 1.25rem;
+
+    @media (min-width: 75em) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 75em) {
+    flex-direction: row;
   }
 }
 
 .stats {
   display: flex;
+  margin-bottom: 2.188rem;
 
   > div {
     &:not(:last-child) {
@@ -58,5 +78,9 @@
     font-size: 1.5rem;
     line-height: 29px;
     text-align: center;
+  }
+
+  @media (min-width: 75em) {
+    margin-bottom: 0;
   }
 }

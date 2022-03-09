@@ -1,24 +1,45 @@
 .wrapper {
-  margin-top: 56px;
+  max-width: 37.5rem;
+  margin: 1rem auto 0;
+
+  @media (min-width: 75em) {
+    max-width: none;
+    margin: 3.5rem 0 0 0;
+  }
 }
 
 .content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column-reverse;
+  padding: 0 0.625rem;
 
   h3 {
     font-weight: normal;
-    font-size: 23px;
+    font-size: 1.438rem;
     line-height: 28px;
     color: #ffffff;
     opacity: 0.5;
+    word-break: break-all;
+    text-align: center;
+
+    @media (min-width: 75em) {
+      word-break: normal;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 75em) {
+    flex-direction: row;
+    padding: 0;
   }
 }
 
 .points_wrapper {
   display: flex;
   align-items: center;
+  margin-bottom: 3.5rem;
 
   p {
     font-weight: 500;
@@ -30,5 +51,9 @@
 
   img {
     margin-left: 1.5rem;
+  }
+
+  @media (min-width: 75em) {
+    margin-bottom: 0;
   }
 }

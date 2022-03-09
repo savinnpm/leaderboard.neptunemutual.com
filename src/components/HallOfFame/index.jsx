@@ -20,7 +20,7 @@ export const HallOfFame = ({
     <div className={styles.wrapper}>
       <div className="container">
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Hall of Fame</h2>
+          <h2>Hall of Fame</h2>
           <a href={BUG_REPORT_URL} target="_blank" rel="noopener noreferrer">
             SUBMIT BUG REPORT
           </a>
