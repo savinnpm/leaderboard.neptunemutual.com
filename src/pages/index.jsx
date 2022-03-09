@@ -65,7 +65,11 @@ export default function Home() {
           loading={isLoading}
         />
 
-        <Footer page={"leaderboard"} />
+        <Footer
+          page={"leaderboard"}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
       </div>
     </>
   );
