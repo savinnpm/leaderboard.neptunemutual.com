@@ -47,27 +47,27 @@ export function AddressRow({ data, index }) {
       </td>
 
       <td className={styles.image_cell}>
-        <div className={styles.image_cell_content}>
-          <div
-            className={styles.image_wrapper}
-            dangerouslySetInnerHTML={{ __html: getAvatarSvg(address) }}
-          ></div>
-        </div>
+        <div
+          className={styles.image_wrapper}
+          dangerouslySetInnerHTML={{ __html: getAvatarSvg(address) }}
+        ></div>
       </td>
 
       <td
         className={classNames(styles.name_cell, styles[`name_cell_${index}`])}
       >
-        <h3 className={""}>{name}</h3>
-        {width <= 600 && ( // display this on mobile view
-          <span className={styles.truncated_string_mobile}>
-            {truncateString(
-              address,
-              renderTruncatedLength(),
-              renderTruncatedPosition()
-            )}
-          </span>
-        )}
+        <div className={styles.name_cell_content}>
+          <h3 className={""}>{name}</h3>
+          {width <= 600 && ( // display this on mobile view
+            <span className={styles.truncated_string_mobile}>
+              {truncateString(
+                address,
+                renderTruncatedLength(),
+                renderTruncatedPosition()
+              )}
+            </span>
+          )}
+        </div>
       </td>
 
       {width > 600 && ( // hide this on mobile view

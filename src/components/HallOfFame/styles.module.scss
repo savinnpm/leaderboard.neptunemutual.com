@@ -81,6 +81,10 @@
   width: 5rem;
   padding-left: 1rem;
   padding-right: 0;
+
+  @media (max-width: 37.5em) {
+    padding-right: 1rem;
+  }
 }
 
 .action_head_cell {
