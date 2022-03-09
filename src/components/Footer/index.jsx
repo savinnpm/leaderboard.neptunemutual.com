@@ -6,9 +6,9 @@ import FacebookIcon from "../icons/FacebookIcon";
 import TelegramIcon from "../icons/TelegramIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
-import ShareIcon from "../icons/ShareIcon";
 import styles from "./styles.module.scss";
 import { SearchBox } from "../SearchBox";
+import { ShareLinksPopover } from "../ShareLinksPopover";
 
 const leaderTexts = [
   `Neptune Mutual just launched their protocol testnet! I've been having fun and getting points trying out their platform.\n\nCheck out the latest rankings on their Hall of Fame leaderboard:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
@@ -147,7 +147,12 @@ export const Footer = ({ page, points, searchTerm, setSearchTerm }) => {
       </div>
       <div className={styles.footer_mobile}>
         <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <ShareIcon />
+        <ShareLinksPopover
+          url={url}
+          text={text}
+          copied={copied}
+          copyAddress={copyAddress}
+        />
       </div>
     </footer>
   );

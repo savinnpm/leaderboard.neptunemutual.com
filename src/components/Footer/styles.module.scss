@@ -80,12 +80,6 @@
     bottom: 0;
   }
 
-  @media (min-width: 62em) and (orientation: portrait) {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-  }
-
   @media (min-width: 75em) {
     display: none;
   }
