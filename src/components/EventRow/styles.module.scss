@@ -34,6 +34,11 @@ td.action_cell {
 
   .action {
     white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .story {
+    white-space: break-spaces;
   }
 
   .action_points {

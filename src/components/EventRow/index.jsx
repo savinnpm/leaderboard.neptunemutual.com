@@ -22,10 +22,8 @@ export function EventRow({ data }) {
       </td>
 
       <td className={styles.action_cell}>
-        <span className={styles.action}>
-          <strong>{action}</strong>
-        </span>
-        <span>{` (${story})`}</span>
+        <span className={styles.action}>{action}</span>
+        <span className={styles.story}>{` (${story})`}</span>
         {width < 1200 && ( // will display on mobile and tablet view
           <span className={styles.action_points}>{`+${
             formatCurrency(point, "", true).short
