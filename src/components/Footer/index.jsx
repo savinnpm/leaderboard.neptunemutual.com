@@ -45,7 +45,7 @@ export const Footer = ({ page, points }) => {
   useEffect(() => {
     setUrl(window.location.origin);
     setText(getText());
-  }, []);
+  }, [points]);
 
   useEffect(() => {
     if (copied) {
