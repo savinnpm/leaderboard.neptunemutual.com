@@ -47,9 +47,10 @@
 
 .table_wrapper {
   border: 0.5px solid rgba(255, 255, 255, 0.15);
+  overflow-x: scroll;
 
-  @media (max-width: 37.5em) {
-    overflow-x: scroll;
+  @media (min-width: 23.438em) {
+    overflow-x: hidden;
   }
 }
 

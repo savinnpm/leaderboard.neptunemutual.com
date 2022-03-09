@@ -40,7 +40,9 @@ export const HallOfFame = ({
                   <th className={styles.address_head_cell}>Wallet Address</th>
                 )}
                 <th className={styles.points_head_cell}>Points</th>
-                <th className={styles.action_head_cell}></th>
+                {width > 600 && ( // will display only on tablet and desktop
+                  <th className={styles.action_head_cell}></th>
+                )}
               </tr>
             </thead>
 

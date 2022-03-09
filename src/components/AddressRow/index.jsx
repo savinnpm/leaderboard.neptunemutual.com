@@ -7,9 +7,11 @@ import { formatCurrency } from "../../utils/formatter/currency";
 import styles from "./styles.module.scss";
 import { truncateString } from "../../utils/truncate";
 import useWindowSize from "../../hooks/useWindowSize";
+import { useRouter } from "next/router";
 
 export function AddressRow({ data, index }) {
   const { width } = useWindowSize();
+  const router = useRouter();
   const { rank, address, name, totalPoints } = data;
 
   function renderTruncatedLength() {
@@ -29,8 +31,20 @@ export function AddressRow({ data, index }) {
     return false;
   }
 
+  function handleOnClickRow(e) {
+    if (width <= 600 && !isZeroAddress(address)) {
+      // will execute on mobile view only
+      return router.push(`/${address}`);
+    }
+
+    return e.preventDefault(); // else prevent execution
+  }
+
   return (
-    <tr className={classNames(styles.row, styles.fade_in)}>
+    <tr
+      className={classNames(styles.row, styles.fade_in)}
+      onClick={handleOnClickRow}
+    >
       <td className={styles.rank_cell}>
         <div className={styles.rank_content}>
           <span className={classNames(rank === 1 && styles.first)}>{rank}</span>
@@ -89,15 +103,17 @@ export function AddressRow({ data, index }) {
         <div>{formatCurrency(totalPoints, "", true).short}</div>
       </td>
 
-      <td className={styles.action_cell}>
-        {!isZeroAddress(address) && (
-          <Link href={`/${address}`}>
-            <a className={styles.link}>
-              <ArrowRightIcon height={18} />
-            </a>
-          </Link>
-        )}
-      </td>
+      {width > 600 && ( // hide this on mobile view
+        <td className={styles.action_cell}>
+          {!isZeroAddress(address) && (
+            <Link href={`/${address}`}>
+              <a className={styles.link}>
+                <ArrowRightIcon height={18} />
+              </a>
+            </Link>
+          )}
+        </td>
+      )}
     </tr>
   );
 }

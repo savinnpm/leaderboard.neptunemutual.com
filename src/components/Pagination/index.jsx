@@ -56,7 +56,7 @@ export const Pagination = ({
           onChange={handlePageChange}
         />
 
-        <p>
+        <p className={styles.pagination_from_to}>
           {from}-{actualTo} of {records}
         </p>
 
