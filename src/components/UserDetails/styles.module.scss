@@ -1,26 +1,43 @@
 .wrapper {
-  margin-top: 64px;
   display: flex;
-  justify-content: flex-start;
+  margin-top: 2.188rem;
+
+  @media (max-width: 37.5em) {
+    margin-top: 4rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .image_wrapper {
   width: 80px;
   height: 80px;
   margin-right: 12px;
+
+  @media (max-width: 37.5em) {
+    margin-right: 0;
+  }
 }
 
 .data_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
 
   h1 {
     font-weight: 600;
     font-size: 28px;
     line-height: 34px;
     color: #ffffff;
+    margin: 0;
+
+    @media (max-width: 37.5em) {
+      margin: 0.313rem 0;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    align-items: center;
   }
 }
 
@@ -33,6 +50,7 @@
   padding: 0px 14px 0px 16px;
   background-color: #3d4379;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 124px;
 
   .rank_title {
     display: inline-block;

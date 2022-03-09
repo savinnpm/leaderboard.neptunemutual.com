@@ -1,5 +1,9 @@
 .wrapper {
   min-width: 29rem;
+
+  @media (max-width: 37.5em) {
+    min-width: 15rem;
+  }
 }
 
 .input_wrapper {

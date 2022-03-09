@@ -5,7 +5,6 @@
 .container {
   color: #989ab8;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -15,11 +14,20 @@
     font-size: 1.5rem;
     line-height: 29px;
   }
+
+  @media (max-width: 37.5em) {
+    flex-direction: column;
+  }
 }
 
 .graphic_container {
   padding-bottom: 20px;
   margin-right: 28px;
+
+  @media (max-width: 37.5em) {
+    padding-bottom: 0.625rem;
+    margin-right: 0;
+  }
 }
 
 .title_container {
@@ -31,6 +39,14 @@
     font-size: 1.5rem;
     line-height: 29px;
     color: #adafc6;
+
+    @media (max-width: 37.5em) {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    flex-direction: column;
   }
 }
 
@@ -58,5 +74,9 @@
     font-size: 1.5rem;
     line-height: 29px;
     text-align: center;
+  }
+
+  @media (max-width: 37.5em) {
+    margin-bottom: 2.188rem;
   }
 }

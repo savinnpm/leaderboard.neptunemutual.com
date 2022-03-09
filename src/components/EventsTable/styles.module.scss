@@ -1,19 +1,31 @@
 .wrapper {
-  margin-top: 1.5rem;
-  margin-bottom: 2.25rem;
+  margin: 1.5rem 0;
 }
 
 .table_wrapper {
   margin-top: 20px;
   border: 0.5px solid rgba(255, 255, 255, 0.25);
-  overflow-x: scroll;
+
+  @media (max-width: 37.5em) {
+    overflow-x: scroll;
+  }
 }
 
 .time_head_cell,
 .action_head_cell,
-.view_head_cell,
 .points_head_cell {
   padding-left: 1.5rem;
+}
+
+.view_head_cell {
+  padding-right: 1.5rem;
+  text-align: right;
+
+  @media (min-width: 75em) {
+    padding-right: 0;
+    padding-left: 1.5rem;
+    text-align: left;
+  }
 }
 
 .points_head_cell {

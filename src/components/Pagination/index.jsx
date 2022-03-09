@@ -47,6 +47,7 @@ export const Pagination = ({
       )}
 
       <div className={styles.pagination_nav}>
+        <p>Page</p>
         <input
           type="number"
           name="page"
