@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column;
 
   h1 {
     text-transform: uppercase;
@@ -16,46 +15,43 @@
     line-height: 29px;
   }
 
-  @media (min-width: 75em) {
-    flex-direction: row;
+  @media (max-width: 37.5em) {
+    flex-direction: column;
   }
 }
 
 .graphic_container {
-  padding-bottom: 0.625rem;
-  margin-right: 0;
+  padding-bottom: 20px;
+  margin-right: 28px;
 
-  @media (min-width: 75em) {
-    padding-bottom: 20px;
-    margin-right: 28px;
+  @media (max-width: 37.5em) {
+    padding-bottom: 0.625rem;
+    margin-right: 0;
   }
 }
 
 .title_container {
   display: flex;
   align-items: center;
-  flex-direction: column;
 
   h1 {
     font-weight: 500;
     font-size: 1.5rem;
     line-height: 29px;
     color: #adafc6;
-    margin-bottom: 1.25rem;
 
-    @media (min-width: 75em) {
-      margin-bottom: 0;
+    @media (max-width: 37.5em) {
+      margin-bottom: 1.25rem;
     }
   }
 
-  @media (min-width: 75em) {
-    flex-direction: row;
+  @media (max-width: 37.5em) {
+    flex-direction: column;
   }
 }
 
 .stats {
   display: flex;
-  margin-bottom: 2.188rem;
 
   > div {
     &:not(:last-child) {
@@ -80,7 +76,7 @@
     text-align: center;
   }
 
-  @media (min-width: 75em) {
-    margin-bottom: 0;
+  @media (max-width: 37.5em) {
+    margin-bottom: 2.188rem;
   }
 }

@@ -2,16 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 3.375rem;
+  margin-bottom: 3.375rem;
 
   > * {
     flex: 1 1 100%;
+  }
+
+  @media (max-width: 37.5em) and (orientation: portrait) {
+    margin-bottom: 8.063rem;
   }
 }
 
 .credits_wrapper {
   padding: 0 0.75rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  opacity: 0.69;
 
   a {
     border-bottom: 1px solid #ffffff;
@@ -19,6 +24,10 @@
 
   span {
     margin: 0 0.313rem;
+  }
+
+  @media (max-width: 37.5em) {
+    text-align: center;
   }
 }
 
@@ -60,6 +69,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  svg {
+    cursor: pointer;
+  }
+
+  @media (max-width: 37.5em) and (orientation: portrait) {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
+  @media (min-width: 62em) and (orientation: portrait) {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
 
   @media (min-width: 75em) {
     display: none;
