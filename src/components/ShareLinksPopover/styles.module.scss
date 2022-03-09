@@ -1,5 +1,10 @@
 .popover {
   position: relative;
+  margin-top: 0.313rem;
+
+  @media (max-width: 20em) {
+    margin: 0.313rem 0 0 0.875rem;
+  }
 }
 
 .popover_panel {

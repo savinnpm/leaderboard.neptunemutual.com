@@ -4,13 +4,17 @@
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
-  // backdrop-filter: blur(12px);
 }
 
 .pagination_nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  font-size: 0.875rem;
+
+  p {
+    opacity: 0.7;
+  }
 
   input {
     min-width: 0;
@@ -21,11 +25,22 @@
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     margin: 0 1.5rem;
+
+    @media (max-width: 37.5em) {
+      margin: 0 0.938rem;
+      width: 3.75rem;
+    }
+  }
+
+  .pagination_from_to {
+    @media (max-width: 37.5em) {
+      display: none;
+    }
   }
 }
 
 .pagination_btn {
-  padding: 0.5rem;
+  padding: 0.5rem 0.313rem;
 
   &:disabled {
     opacity: 0.5;

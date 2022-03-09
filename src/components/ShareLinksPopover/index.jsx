@@ -11,7 +11,7 @@ import styles from "./styles.module.scss";
 
 export const ShareLinksPopover = ({ url, text, copied, copyAddress }) => {
   return (
-    <div>
+    <>
       <Popover className={styles.popover}>
         <Popover.Button>
           <ShareIcon />
@@ -84,6 +84,6 @@ export const ShareLinksPopover = ({ url, text, copied, copyAddress }) => {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </div>
+    </>
   );
 };

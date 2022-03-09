@@ -1,8 +1,12 @@
 .wrapper {
   min-width: 29rem;
 
+  @media (max-width: 20em) {
+    min-width: 15.5rem !important;
+  }
+
   @media (max-width: 37.5em) {
-    min-width: 15rem;
+    min-width: 18.5rem;
   }
 }
 
