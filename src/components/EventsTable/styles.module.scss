@@ -10,9 +10,19 @@
 
 .time_head_cell,
 .action_head_cell,
-.view_head_cell,
 .points_head_cell {
   padding-left: 1.5rem;
+}
+
+.view_head_cell {
+  padding-right: 1.5rem;
+  text-align: right;
+
+  @media (min-width: 75em) {
+    padding-right: 0;
+    padding-left: 1.5rem;
+    text-align: left;
+  }
 }
 
 .points_head_cell {

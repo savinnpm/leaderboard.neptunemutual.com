@@ -3,6 +3,7 @@ import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 import { EventRowSkeleton } from "../EventRow/skeleton";
 import { NoData } from "../NoData";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export const EventsTable = ({
   data,
@@ -13,6 +14,8 @@ export const EventsTable = ({
   records,
   loading,
 }) => {
+  const { width } = useWindowSize();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.table_wrapper}>
@@ -22,7 +25,9 @@ export const EventsTable = ({
               <th className={styles.time_head_cell}>Time</th>
               <th className={styles.action_head_cell}>Action</th>
               <th className={styles.view_head_cell}>View</th>
-              <th className={styles.points_head_cell}>Points</th>
+              {width >= 1200 && ( // will display only on desktop view
+                <th className={styles.points_head_cell}>Points</th>
+              )}
             </tr>
           </thead>
 
