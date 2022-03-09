@@ -1,0 +1,50 @@
+.mobile_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0.625rem;
+}
+
+.menu_item {
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+
+  > h1 {
+    opacity: 0.5;
+    font-size: 1.188rem;
+    line-height: 1.438rem;
+  }
+
+  > a {
+    font-size: 2.5rem;
+    line-height: 3rem;
+
+    @media (max-width: 37.5em) {
+      font-size: 2rem;
+    }
+  }
+
+  .social {
+    a {
+      display: inline-block;
+      color: inherit;
+    }
+
+    & > a:not(:last-child) {
+      margin-right: 0.75rem;
+    }
+  }
+}
+
+.menu_item:nth-child(even) {
+  margin: 2.5rem 0 5.563rem 0;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -9,6 +9,7 @@
   align-items: flex-end;
 
   a {
+    display: none;
     padding: 12px 1rem;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 4px;
@@ -18,6 +19,10 @@
     line-height: 17px;
     letter-spacing: 0.05em;
     color: #ffffff;
+
+    @media (min-width: 75em) {
+      display: block;
+    }
   }
 }
 

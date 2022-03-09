@@ -5,8 +5,21 @@ import TelegramIcon from "../icons/TelegramIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import Logo from "./Logo";
 import styles from "./styles.module.scss";
+import { BurgerComponent } from "../BurgerComponent";
+import { useState, Fragment } from "react";
+import { MenuModal } from "../MenuModal";
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleMenu() {
+    setIsOpen((prevState) => !prevState);
+  }
+
+  function onClose() {
+    setIsOpen(false);
+  }
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -40,8 +53,10 @@ export function Header() {
               <MediumIcon width={24} />
             </a>
           </div>
+          {!isOpen && <BurgerComponent isOpen={isOpen} onToggle={toggleMenu} />}
         </div>
       </div>
+      <MenuModal isOpen={isOpen} onClose={onClose} />
     </>
   );
 }
