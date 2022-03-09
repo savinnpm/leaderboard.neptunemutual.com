@@ -60,18 +60,17 @@ export const HallOfFame = ({
               )}
             </tbody>
           </table>
-
-          <Pagination
-            noSearch={width < 1200 ? true : false} // for tablet and mobile view, remove search component
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            skip={skip}
-            setSkip={setSkip}
-            limit={limit}
-            setLimit={setLimit}
-            records={totalUsers}
-          />
         </div>
+        <Pagination
+          noSearch={width < 1200 ? true : false} // for tablet and mobile view, remove search component
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          skip={skip}
+          setSkip={setSkip}
+          limit={limit}
+          setLimit={setLimit}
+          records={totalUsers}
+        />
       </div>
     </div>
   );

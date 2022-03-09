@@ -47,16 +47,15 @@ export const EventsTable = ({
             )}
           </tbody>
         </table>
-
-        <Pagination
-          noSearch
-          skip={skip}
-          setSkip={setSkip}
-          limit={limit}
-          setLimit={setLimit}
-          records={records}
-        />
       </div>
+      <Pagination
+        noSearch
+        skip={skip}
+        setSkip={setSkip}
+        limit={limit}
+        setLimit={setLimit}
+        records={records}
+      />
     </div>
   );
 };
