@@ -25,9 +25,10 @@ export function EventRow({ data }) {
         <span className={styles.action}>{action}</span>
         <span className={styles.story}>{` (${story})`}</span>
         {width < 1200 && ( // will display on mobile and tablet view
-          <span className={styles.action_points}>{`+${
-            formatCurrency(point, "", true).short
-          } Points`}</span>
+          <span
+            title={formatCurrency(point, "", true).long}
+            className={styles.action_points}
+          >{`+${formatCurrency(point, "", true).short} Points`}</span>
         )}
       </td>
 
@@ -43,7 +44,9 @@ export function EventRow({ data }) {
 
       {width >= 1200 && ( // will display only on desktop view
         <td className={styles.points_cell}>
-          <div>+{formatCurrency(point, "", true).short}</div>
+          <div title={formatCurrency(point, "", true).long}>
+            +{formatCurrency(point, "", true).short}
+          </div>
         </td>
       )}
     </tr>

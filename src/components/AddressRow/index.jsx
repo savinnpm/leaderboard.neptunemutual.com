@@ -97,7 +97,9 @@ export function AddressRow({ data, index }) {
           styles[`points_cell_${index}`]
         )}
       >
-        <div>{formatCurrency(totalPoints, "", true).short}</div>
+        <div title={formatCurrency(totalPoints, "", true).long}>
+          {formatCurrency(totalPoints, "", true).short}
+        </div>
       </td>
 
       {width > 600 && ( // hide this on mobile view
