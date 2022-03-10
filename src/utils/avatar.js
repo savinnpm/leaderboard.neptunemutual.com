@@ -1,33 +1,5 @@
 import { createAvatar } from "@dicebear/avatars";
-// import * as style from "@dicebear/avatars-bottts-sprites";
 import * as style from "@dicebear/micah";
-
-const randomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
-const pickOne = (items) => items[Math.floor(Math.random() * items.length)];
-const backgrounds = [
-  "#655D8A",
-  "#9D5353",
-  "#709FB0",
-  "#6EBFB5",
-  "#BAABDA",
-  "#EDC988",
-  "#D8B384",
-  "#7B6079",
-  "#845460",
-  "#B4A5A5",
-  "#A0937D",
-  "#8E9775",
-  "#A7D0CD",
-  "#CA8A8B",
-  "#AD6C80",
-];
-
-function randomHsl() {
-  return `hsla(${randomInt(0, 360)}, ${randomInt(0, 33)}%, ${randomInt(
-    75,
-    100
-  )}%, ${Math.random().toFixed(2)})`;
-}
 
 function getBackground(seed = "") {
   const hue =
@@ -35,7 +7,7 @@ function getBackground(seed = "") {
       .split("")
       .map((x) => x.charCodeAt(x) || -5)
       .reduce((a, b) => a + b, 0) % 360;
-  return `hsla(${hue}, 70%, 70%, 0.6)`;
+  return `hsla(${hue}, 70%, 70%, 0.3)`;
 }
 
 export const getAvatarSvg = (seed) => {
