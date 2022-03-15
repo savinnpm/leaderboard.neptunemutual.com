@@ -3,11 +3,15 @@ import { Fragment, useState } from "react";
 import { XIcon } from "@heroicons/react/outline";
 import styles from "./styles.module.scss";
 import DateLib from "../../../lib/date/DateLib";
-import { classNames } from "../../utils/classnames";
 
 export function BugReportModal({ underlying }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showFull, setShowFull] = useState(false);
+  const responseStringSplit =
+    underlying.response && underlying.response.split(".");
+  const firstResponseSentenceSplit =
+    responseStringSplit && responseStringSplit.shift();
+  const restResponseSentenceSplit =
+    responseStringSplit && responseStringSplit.join(".").trim();
 
   function closeModal() {
     setIsOpen(false);
@@ -64,6 +68,9 @@ export function BugReportModal({ underlying }) {
 
                 {/* Content Container */}
                 <div className={styles.modal_content}>
+                  {underlying.accepted && (
+                    <h4 className={styles.modal_status}>Accepted</h4>
+                  )}
                   {/* Title */}
                   <Dialog.Title as="h3" className={styles.modal_title}>
                     {underlying.title}
@@ -76,38 +83,17 @@ export function BugReportModal({ underlying }) {
                     )}
                   </p>
 
-                  <div
-                    className={classNames(
-                      styles.modal_description,
-                      showFull && styles.full
-                    )}
-                  >
-                    {underlying.description.split("\n").map((line, idx) => {
-                      return <p key={idx}>{line}</p>;
-                    })}
+                  <div className={styles.modal_description}>
+                    {underlying.description}
                   </div>
-                  {!showFull && (
-                    <button
-                      onClick={() => setShowFull(true)}
-                      className={styles.read_more}
-                    >
-                      Show more
-                    </button>
-                  )}
 
-                  <div className={styles.status}>
-                    <p>
-                      Status:{" "}
-                      <span
-                        className={classNames(
-                          styles.status_badge,
-                          underlying.accepted && styles.success
-                        )}
-                      >
-                        {underlying.accepted ? "Accepted" : "Not accepted"}
-                      </span>
-                    </p>
-                  </div>
+                  {underlying.response && (
+                    <div className={styles.modal_response}>
+                      <h3>Team Response</h3>
+                      <p>{firstResponseSentenceSplit}.</p>
+                      <p>{restResponseSentenceSplit}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </Transition.Child>
