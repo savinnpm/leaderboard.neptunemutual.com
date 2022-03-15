@@ -73,6 +73,7 @@
     max-height: 500px;
     overflow-y: scroll;
     background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px);
     color: #000;
   }
 
