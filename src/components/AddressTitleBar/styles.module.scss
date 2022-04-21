@@ -1,5 +1,11 @@
 .wrapper {
-  margin-top: 56px;
+  max-width: none;
+  margin: 3.5rem 0 0 0;
+
+  @media (max-width: 37.5em) {
+    max-width: 37.5rem;
+    margin: 1rem auto 0;
+  }
 }
 
 .content {
@@ -9,10 +15,20 @@
 
   h3 {
     font-weight: normal;
-    font-size: 23px;
+    font-size: 1.438rem;
     line-height: 28px;
     color: #ffffff;
     opacity: 0.5;
+
+    @media (max-width: 37.5em) {
+      word-break: break-all;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    flex-direction: column-reverse;
+    padding: 0 0.625rem;
   }
 }
 
@@ -30,5 +46,9 @@
 
   img {
     margin-left: 1.5rem;
+  }
+
+  @media (max-width: 37.5em) {
+    margin-bottom: 3.5rem;
   }
 }

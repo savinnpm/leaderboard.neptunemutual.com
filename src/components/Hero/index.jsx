@@ -17,12 +17,16 @@ export const Hero = ({ pointsEarned, totalUsers }) => {
         <div className={styles.stats}>
           <div>
             <h3>POINTS EARNED</h3>
-            <p>{formatCurrency(pointsEarned, "", true).short}</p>
+            <p title={formatCurrency(pointsEarned, "", true).long}>
+              {formatCurrency(pointsEarned, "", true).short}
+            </p>
           </div>
 
           <div>
             <h3>TOTAL USERS</h3>
-            <p>{formatCurrency(totalUsers, "", true).short}</p>
+            <p title={formatCurrency(totalUsers, "", true).long}>
+              {formatCurrency(totalUsers, "", true).short}
+            </p>
           </div>
         </div>
       </div>

@@ -14,13 +14,13 @@ export const Pagination = ({
   setLimit: _setLimit,
   records,
 }) => {
-  const page = skip / limit + 1;
-  const from = skip + 1;
-  const to = skip + limit;
+  const page = skip ? skip / limit + 1 : 1;
+  const from = skip ? skip + 1 : records ? 1 : 0;
+  const to = skip ? skip + limit : limit;
   const actualTo = Math.min(to, records);
 
   const isLastPage = to >= records;
-  const isFirstPage = skip - limit < 0;
+  const isFirstPage = skip === 0;
 
   const router = useRouter();
 
@@ -28,7 +28,6 @@ export const Pagination = ({
     const newPage = ev.target.value;
 
     if (newPage && newPage > 0) {
-      // setSkip((newPage - 1) * limit);
       if ((isFirstPage && newPage < page) || (isLastPage && newPage > page))
         return;
       router.push({
@@ -47,6 +46,7 @@ export const Pagination = ({
       )}
 
       <div className={styles.pagination_nav}>
+        <p>Page</p>
         <input
           type="number"
           name="page"
@@ -55,14 +55,13 @@ export const Pagination = ({
           onChange={handlePageChange}
         />
 
-        <p>
+        <p className={styles.pagination_from_to}>
           {from}-{actualTo} of {records}
         </p>
 
         <button
           className={styles.pagination_btn}
           onClick={() => {
-            // setSkip((prev) => prev - limit);
             router.push({
               pathname: router.asPath.split("?")[0],
               query: { skip: skip - limit, limit: limit },
@@ -75,7 +74,6 @@ export const Pagination = ({
         <button
           className={styles.pagination_btn}
           onClick={() => {
-            // setSkip((prev) => prev + limit);
             router.push({
               pathname: router.asPath.split("?")[0],
               query: { skip: skip + limit, limit: limit },

@@ -1,0 +1,41 @@
+.popover {
+  position: relative;
+  margin-top: 0.313rem;
+
+  @media (max-width: 20em) {
+    margin: 0.313rem 0 0 0.875rem;
+  }
+}
+
+.popover_panel {
+  position: absolute;
+  z-index: 10;
+  top: -6.563rem;
+  right: 0;
+  max-width: 15rem;
+  width: 100vw;
+}
+
+.popover_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: rgba(0, 7, 77, 0.8);
+  backdrop-filter: blur(1.875rem);
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+
+  h5 {
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 0.938rem;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.popover_share_links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

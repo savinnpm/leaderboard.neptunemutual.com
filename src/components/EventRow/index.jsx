@@ -4,8 +4,10 @@ import { formatCurrency } from "../../utils/formatter/currency";
 import { fromNow } from "../../utils/formatter/relative-time";
 import { BugReportModal } from "../BugReportModal";
 import styles from "./styles.module.scss";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export function EventRow({ data }) {
+  const { width } = useWindowSize();
   const { eventDate, action, story, point, url, underlying } = data;
 
   return (
@@ -20,7 +22,14 @@ export function EventRow({ data }) {
       </td>
 
       <td className={styles.action_cell}>
-        <strong>{action}</strong> (<span>{story}</span>)
+        <span className={styles.action}>{action}</span>
+        <span className={styles.story}>{` (${story})`}</span>
+        {width < 1200 && ( // will display on mobile and tablet view
+          <span
+            title={formatCurrency(point, "", true).long}
+            className={styles.action_points}
+          >{`+${formatCurrency(point, "", true).short} Points`}</span>
+        )}
       </td>
 
       <td className={styles.view_cell}>
@@ -33,9 +42,13 @@ export function EventRow({ data }) {
         )}
       </td>
 
-      <td className={styles.points_cell}>
-        <div>+{formatCurrency(point, "", true).short}</div>
-      </td>
+      {width >= 1200 && ( // will display only on desktop view
+        <td className={styles.points_cell}>
+          <div title={formatCurrency(point, "", true).long}>
+            +{formatCurrency(point, "", true).short}
+          </div>
+        </td>
+      )}
     </tr>
   );
 }

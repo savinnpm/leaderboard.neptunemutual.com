@@ -7,6 +7,8 @@ import TelegramIcon from "../icons/TelegramIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import WhatsAppIcon from "../icons/WhatsAppIcon";
 import styles from "./styles.module.scss";
+import { SearchBox } from "../SearchBox";
+import { ShareLinksPopover } from "../ShareLinksPopover";
 
 const leaderTexts = [
   `Neptune Mutual just launched their protocol testnet! I've been having fun and getting points trying out their platform.\n\nCheck out the latest rankings on their Hall of Fame leaderboard:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
@@ -19,7 +21,7 @@ const profileTexts = [
   `Be one of the first to try out Neptune Mutual! I’ve made <POINT> points so far completing tasks on their public testnet.\n\nTake a look at my progress:\n<URL>\n\n#neptunemutual #testnet #cover #defi`,
 ];
 
-export const Footer = ({ page, points }) => {
+export const Footer = ({ page, points, searchTerm, setSearchTerm }) => {
   const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState("");
   const [text, setText] = useState("");
@@ -69,17 +71,15 @@ export const Footer = ({ page, points }) => {
     <footer>
       <div className={classNames("container", styles.footer)}>
         <p className={styles.credits_wrapper}>
-          {'"'}
           <a
             href="https://avatars.dicebear.com/styles/micah"
             target="_blank"
             rel="noopener noreferrer nofollow"
             className={styles.link_ul}
           >
-            Micah
+            {'"Micah"'}
           </a>
-          {'"'}
-          {" by Micah Lanier is licensed under "}
+          <span>by Micah Lanier is licensed under</span>
           <a
             href="https://creativecommons.org/licenses/by/4.0/"
             target="_blank"
@@ -144,6 +144,15 @@ export const Footer = ({ page, points }) => {
             </button>
           </p>
         </div>
+      </div>
+      <div className={styles.footer_mobile}>
+        <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <ShareLinksPopover
+          url={url}
+          text={text}
+          copied={copied}
+          copyAddress={copyAddress}
+        />
       </div>
     </footer>
   );

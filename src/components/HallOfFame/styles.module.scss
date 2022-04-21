@@ -1,43 +1,66 @@
 .wrapper {
-  margin-top: 5rem;
   margin-bottom: 2.25rem;
 }
 
 .title_container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  h2 {
+    font-weight: bold;
+    font-size: 1.438rem;
+    line-height: 40px;
+    letter-spacing: 0.05em;
+    color: #cdcdd6;
+    margin: 1.563rem 0;
+
+    @media (min-width: 75em) {
+      margin: 2.188rem 0;
+      font-size: 2.063rem;
+    }
+  }
 
   a {
+    display: none;
     padding: 12px 1rem;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 4px;
-
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.05em;
     color: #ffffff;
+
+    @media (min-width: 75em) {
+      display: block;
+      margin: 1.7rem 0;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    text-align: center;
+  }
+
+  @media (min-width: 75em) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }
 
-.title {
-  font-weight: bold;
-  font-size: 33px;
-  line-height: 40px;
-  letter-spacing: 0.05em;
-  color: #cdcdd6;
-}
-
 .table_wrapper {
-  margin-top: 20px;
   border: 0.5px solid rgba(255, 255, 255, 0.15);
   overflow-x: scroll;
+
+  @media (min-width: 23.438em) {
+    overflow-x: hidden;
+  }
 }
 
 .rank_head_cell {
   padding-left: 3rem;
   width: 10rem;
+
+  @media (max-width: 37.5em) {
+    padding-left: 0.563rem;
+  }
 }
 
 .image_head_cell {
@@ -59,6 +82,10 @@
   width: 5rem;
   padding-left: 1rem;
   padding-right: 0;
+
+  @media (max-width: 37.5em) {
+    padding-right: 1rem;
+  }
 }
 
 .action_head_cell {

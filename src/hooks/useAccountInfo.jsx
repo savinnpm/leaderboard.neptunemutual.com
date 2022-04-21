@@ -29,7 +29,7 @@ export const useAccountInfo = ({ address, skip, limit, searchTerm }) => {
       method: "GET",
     };
 
-    let url = new URL(`${BASE_URL}/accounts/${address}`);
+    let url = new URL(`accounts/${address}`, BASE_URL);
 
     if (searchTerm) {
       url.searchParams.set("search", searchTerm);

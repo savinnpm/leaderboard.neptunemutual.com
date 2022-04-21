@@ -30,14 +30,10 @@ export default function Home() {
 
   useEffect(() => {
     if (router.isReady) {
-      if (router.query.skip && !isNaN(parseInt(router.query.skip)))
-        setSkip(parseInt(router.query.skip));
-      if (router.query.limit && !isNaN(parseInt(router.query.limit)))
-        setLimit(parseInt(router.query.limit));
-      if (!router.query.skip && !router.query.limit) {
-        setSkip(0);
-        setLimit(LIMIT);
-      }
+      const s = parseInt(router.query.skip) || 0;
+
+      setSkip(s);
+      setLimit(LIMIT);
     }
   }, [router]);
 
@@ -65,7 +61,11 @@ export default function Home() {
           loading={isLoading}
         />
 
-        <Footer page={"leaderboard"} />
+        <Footer
+          page={"leaderboard"}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
       </div>
     </>
   );

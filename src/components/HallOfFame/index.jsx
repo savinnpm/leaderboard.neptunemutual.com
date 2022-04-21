@@ -4,6 +4,7 @@ import { AddressRow } from "../AddressRow";
 import { Pagination } from "../Pagination";
 import styles from "./styles.module.scss";
 import { NoData } from "../NoData";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export const HallOfFame = ({
   data,
@@ -16,11 +17,13 @@ export const HallOfFame = ({
   totalUsers,
   loading,
 }) => {
+  const { width } = useWindowSize();
+
   return (
     <div className={styles.wrapper}>
       <div className="container">
         <div className={styles.title_container}>
-          <h2 className={styles.title}>Hall of Fame</h2>
+          <h2>Hall of Fame</h2>
           <a href={BUG_REPORT_URL} target="_blank" rel="noopener noreferrer">
             SUBMIT BUG REPORT
           </a>
@@ -33,9 +36,13 @@ export const HallOfFame = ({
                 <th className={styles.rank_head_cell}>Rank</th>
                 <th className={styles.image_head_cell}>&nbsp;</th>
                 <th className={styles.name_head_cell}>Moniker</th>
-                <th className={styles.address_head_cell}>Wallet Address</th>
+                {width > 600 && ( // will display only on tablet and desktop
+                  <th className={styles.address_head_cell}>Wallet Address</th>
+                )}
                 <th className={styles.points_head_cell}>Points</th>
-                <th className={styles.action_head_cell}></th>
+                {width > 600 && ( // will display only on tablet and desktop
+                  <th className={styles.action_head_cell}></th>
+                )}
               </tr>
             </thead>
 
@@ -55,17 +62,17 @@ export const HallOfFame = ({
               )}
             </tbody>
           </table>
-
-          <Pagination
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            skip={skip}
-            setSkip={setSkip}
-            limit={limit}
-            setLimit={setLimit}
-            records={totalUsers}
-          />
         </div>
+        <Pagination
+          noSearch={width < 1200 ? true : false} // for tablet and mobile view, remove search component
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          skip={skip}
+          setSkip={setSkip}
+          limit={limit}
+          setLimit={setLimit}
+          records={totalUsers}
+        />
       </div>
     </div>
   );

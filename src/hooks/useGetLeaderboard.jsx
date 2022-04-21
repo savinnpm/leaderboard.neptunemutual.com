@@ -16,7 +16,7 @@ export const useGetLeaderboard = ({ skip, limit, searchTerm }) => {
       method: "GET",
     };
 
-    let url = new URL(`${BASE_URL}/leaderboard`);
+    let url = new URL(`leaderboard`, BASE_URL);
 
     if (searchTerm) {
       url.searchParams.set("search", searchTerm);
